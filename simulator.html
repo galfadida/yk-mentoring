@@ -1,0 +1,215 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>סימולטור YK</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap">
+<style>
+  /* Layout: one column; controls card, then the result tiles, then the workload bar */
+  :root {
+    --bg: #efe7da;
+    --card: #fbf8f3;
+    --line: #e1d3bd;
+    --ink: #2a231c;
+    --muted: #6b5e4f;
+    --accent: #8a6634;
+    --accent-soft: #c9a46a;
+    --dark: #2b251f;
+    --dark-ink: #f2ece2;
+    --dark-gold: #d4b07a;
+    --font: 'Rubik', Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1612; --card: #241f1a; --line: #3a3229; --ink: #f2ece2; --muted: #b9ad9b;
+      --accent: #d4b07a; --accent-soft: #b08a55; --dark: #0f0d0b; --dark-ink: #f2ece2; --dark-gold: #d4b07a;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1612; --card: #241f1a; --line: #3a3229; --ink: #f2ece2; --muted: #b9ad9b;
+    --accent: #d4b07a; --accent-soft: #b08a55; --dark: #0f0d0b; --dark-ink: #f2ece2; --dark-gold: #d4b07a;
+    color-scheme: dark;
+  }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 56px;
+  }
+  .wrap { max-width: 980px; margin-inline: auto; display: flex; flex-direction: column; gap: 28px; }
+  header { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; }
+  .logo { align-self: center; width: 240px; max-width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 14px; box-shadow: 0 10px 28px rgba(40, 30, 20, .25); margin-bottom: 10px; }
+  .eyebrow { color: var(--accent); font-size: 15px; letter-spacing: .08em; }
+  h1 { margin: 0; font-size: clamp(30px, 5vw, 46px); font-weight: 600; line-height: 1.15; text-wrap: balance; }
+  h1 span { color: var(--accent); }
+  .sub { margin: 0; color: var(--muted); font-size: 17px; }
+
+  .controls { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ctrl { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+  .ctrl-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .ctrl label { font-size: 16px; font-weight: 500; }
+  .ctrl input[type=number] { width: 96px; font: 600 22px var(--font); color: var(--accent); background: transparent; border: 1px solid var(--line); border-radius: 10px; padding: 4px 8px; text-align: center; font-variant-numeric: tabular-nums; }
+  .ctrl input[type=range] { width: 100%; accent-color: var(--accent); }
+  .hint { font-size: 15px; color: var(--muted); }
+  input:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
+
+  .results { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .tile .num { white-space: nowrap; font-size: clamp(20px, 2.6vw, 28px); font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; text-align: right; unicode-bidi: plaintext; }
+  .tile .lbl { font-size: 15px; color: var(--muted); }
+  .tile.hero { background: var(--dark); border-color: var(--accent-soft); }
+  .tile.hero .num { color: var(--dark-gold); }
+  .tile.hero .lbl { color: var(--dark-ink); opacity: .8; }
+
+  .load { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .load-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .load-top strong { font-weight: 500; }
+  .bar { height: 14px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent-soft), var(--accent)); border-radius: 999px; transition: width .25s ease; }
+  .bar.over i { background: #b5523b; }
+  .market { font-size: 15px; color: var(--muted); }
+  .badge { display: inline-block; font-size: 14px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--line); }
+  .badge.in { color: #3f6b3a; border-color: #9fbf96; }
+  .badge.out { color: #8a5a1c; border-color: #d9b47a; }
+  footer { font-size: 14px; color: var(--muted); }
+  /* Motion: header rises in, logo breathes a gold glow, the yearly tile has a slow light sweep, tiles pulse on change */
+  header > * { animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
+  header > *:nth-child(2) { animation-delay: .08s; }
+  header > *:nth-child(3) { animation-delay: .16s; }
+  header > *:nth-child(4) { animation-delay: .24s; }
+  @keyframes rise { from { opacity: .15; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .logo { animation: rise .8s cubic-bezier(.2, .7, .2, 1) both, glow 4s ease-in-out 1s infinite; }
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 10px 28px rgba(40, 30, 20, .25), 0 0 0 rgba(212, 176, 122, 0); }
+    50% { box-shadow: 0 10px 28px rgba(40, 30, 20, .25), 0 0 34px rgba(212, 176, 122, .55); }
+  }
+  .tile { position: relative; overflow: hidden; transition: transform .2s ease; }
+  .tile.hero::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(105deg, transparent 35%, rgba(212, 176, 122, .28) 50%, transparent 65%);
+    transform: translateX(-120%); animation: sweep 3.6s ease-in-out 1.2s infinite;
+  }
+  @keyframes sweep { 0% { transform: translateX(120%); } 55%, 100% { transform: translateX(-120%); } }
+  .tile.bump { animation: bump .45s ease; }
+  @keyframes bump { 0% { transform: scale(1); } 40% { transform: scale(1.04); box-shadow: 0 0 0 2px var(--accent-soft); } 100% { transform: scale(1); } }
+  .bar i { background-size: 200% 100%; animation: flow 2.4s linear infinite; background-image: linear-gradient(90deg, var(--accent-soft), var(--accent), var(--accent-soft)); }
+  @keyframes flow { from { background-position: 0% 0; } to { background-position: -200% 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .bar i { transition: none; animation: none; }
+    header > *, .logo, .tile.hero::after, .tile.bump { animation: none !important; }
+  }
+  @media (max-width: 760px) {
+    .controls { grid-template-columns: 1fr; }
+    .results { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<div class="wrap" dir="rtl" lang="he">
+  <header>
+    <img class="logo" src="logo.png" alt="YK Executive Mentoring">
+    <div class="eyebrow">YK EXECUTIVE MENTORING · סימולטור</div>
+    <h1>כמה זה יכול <span>להכניס?</span></h1>
+    <p class="sub">משנים את מספר הלקוחות, הפגישות והמחיר, ורואים מיד את השעות וההכנסה. כל פגישה היא שעה.</p>
+  </header>
+
+  <section class="controls" aria-label="הנתונים">
+    <div class="ctrl">
+      <div class="ctrl-top"><label for="clients">לקוחות</label><input id="clients-n" type="number" min="1" max="150" value="25" aria-label="מספר לקוחות"></div>
+      <input id="clients" type="range" min="1" max="150" value="25">
+      <div class="hint">מנהלים בליווי פעיל</div>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-top"><label for="meetings">פגישות בחודש ללקוח</label><input id="meetings-n" type="number" min="1" max="8" value="2" aria-label="פגישות בחודש"></div>
+      <input id="meetings" type="range" min="1" max="8" value="2">
+      <div class="hint">2 = פגישה כל שבועיים</div>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-top"><label for="price">מחיר לשעה (₪)</label><input id="price-n" type="number" min="300" max="3000" step="50" value="1000" aria-label="מחיר לשעה"></div>
+      <input id="price" type="range" min="300" max="3000" step="50" value="1000">
+      <div class="hint" id="market-hint">טווח השוק בישראל: 700–1,500 ₪</div>
+    </div>
+  </section>
+
+  <section class="results" aria-live="polite">
+    <div class="tile"><div class="num" id="r-hours"></div><div class="lbl">שעות פגישה בחודש</div></div>
+    <div class="tile"><div class="num" id="r-client"></div><div class="lbl">לחודש ללקוח</div></div>
+    <div class="tile"><div class="num" id="r-month"></div><div class="lbl">הכנסה בחודש</div></div>
+    <div class="tile hero"><div class="num" id="r-year"></div><div class="lbl">הכנסה בשנה</div></div>
+  </section>
+
+  <section class="load">
+    <div class="load-top"><strong>עומס עבודה: <span id="r-week"></span> שעות פגישה בשבוע</strong><span id="r-pct"></span></div>
+    <div class="bar" id="bar"><i id="bar-fill"></i></div>
+    <div class="market">מול משרה מלאה של 42 שעות בשבוע. לא כולל הכנה, זמינות בין הפגישות ונסיעות.</div>
+  </section>
+
+  <footer>מחירי השוק בישראל לפי סקירת מחירים של אימון מנהלים (2026). 4.33 שבועות בחודש. החישוב הוא לפני מע"מ והוצאות.</footer>
+</div>
+
+<script>
+  const pairs = ['clients', 'meetings', 'price'];
+  const nis = n => Math.round(n).toLocaleString('he-IL') + ' ₪';
+  const fmt = (n, d = 0) => n.toLocaleString('he-IL', { maximumFractionDigits: d, minimumFractionDigits: d });
+
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const current = {};
+  const timers = {};
+  // Count from the shown value to the new one, and pulse the tile when it changes
+  function tween(id, to, format) {
+    const el = document.getElementById(id);
+    const from = current[id] ?? 0;
+    current[id] = to;
+    cancelAnimationFrame(timers[id]);
+    if (calm || from === to) { el.textContent = format(to); return; }
+    const tile = el.closest('.tile');
+    if (tile) { tile.classList.remove('bump'); void tile.offsetWidth; tile.classList.add('bump'); }
+    const start = performance.now(), dur = from === 0 ? 1100 : 450;
+    const step = now => {
+      const t = Math.min(1, (now - start) / dur);
+      const e = 1 - Math.pow(1 - t, 3);
+      el.textContent = format(from + (to - from) * e);
+      if (t < 1) timers[id] = requestAnimationFrame(step);
+    };
+    timers[id] = requestAnimationFrame(step);
+  }
+
+  function clamp(el, v) {
+    const min = +el.min, max = +el.max;
+    return Math.min(max, Math.max(min, isNaN(v) ? min : v));
+  }
+
+  function calc() {
+    const c = +document.getElementById('clients').value;
+    const m = +document.getElementById('meetings').value;
+    const p = +document.getElementById('price').value;
+    const hours = c * m;
+    const month = hours * p;
+    const week = hours / 4.33;
+    const pct = week / 42 * 100;
+
+    tween('r-year', month * 12, nis);
+    tween('r-month', month, nis);
+    tween('r-client', m * p, nis);
+    tween('r-hours', hours, v => fmt(v));
+    tween('r-week', week, v => fmt(v, 1));
+    document.getElementById('r-pct').textContent = fmt(pct) + '% ממשרה מלאה';
+    document.getElementById('bar-fill').style.width = Math.min(pct, 100) + '%';
+    document.getElementById('bar').classList.toggle('over', pct > 100);
+
+    const hint = document.getElementById('market-hint');
+    const inRange = p >= 700 && p <= 1500;
+    hint.innerHTML = 'טווח השוק בישראל: 700–1,500 ₪ <span class="badge ' + (inRange ? 'in">בתוך הטווח' : 'out">' + (p < 700 ? 'מתחת לטווח' : 'מעל הטווח')) + '</span>';
+  }
+
+  pairs.forEach(id => {
+    const range = document.getElementById(id);
+    const num = document.getElementById(id + '-n');
+    range.addEventListener('input', () => { num.value = range.value; calc(); });
+    num.addEventListener('change', () => { const v = clamp(range, +num.value); num.value = v; range.value = v; calc(); });
+    num.addEventListener('input', () => { const v = +num.value; if (!isNaN(v) && v >= +range.min && v <= +range.max) { range.value = v; calc(); } });
+  });
+  calc();
+</script>

@@ -1,0 +1,390 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>מרכז ההחלטות YK</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap">
+<style>
+  /* Layout: header with persona, summary tiles, tab bar for the four AI tools, one panel at a time */
+  :root {
+    --bg: #efe7da; --card: #fbf8f3; --card-2: #f4ecdf; --line: #e1d3bd;
+    --ink: #2a231c; --muted: #6b5e4f; --accent: #8a6634; --accent-soft: #c9a46a;
+    --dark: #2b251f; --dark-2: #3a3229; --dark-ink: #f2ece2; --dark-muted: #c9bdab; --gold: #d4b07a;
+    --good: #3f6b3a; --good-bg: #e3ecd9; --warn: #8a5a1c; --warn-bg: #f3e3c4; --info: #4b5d73; --info-bg: #e2e7ee;
+    --font: 'Rubik', Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1612; --card: #241f1a; --card-2: #2c2620; --line: #3a3229; --ink: #f2ece2; --muted: #b9ad9b;
+      --accent: #d4b07a; --accent-soft: #b08a55; --dark: #0f0d0b; --dark-2: #1c1814;
+      --good: #a9cf9e; --good-bg: #24301f; --warn: #e3bd7d; --warn-bg: #3a2d18; --info: #b3c3d6; --info-bg: #1f2733;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1612; --card: #241f1a; --card-2: #2c2620; --line: #3a3229; --ink: #f2ece2; --muted: #b9ad9b;
+    --accent: #d4b07a; --accent-soft: #b08a55; --dark: #0f0d0b; --dark-2: #1c1814;
+    --good: #a9cf9e; --good-bg: #24301f; --warn: #e3bd7d; --warn-bg: #3a2d18; --info: #b3c3d6; --info-bg: #1f2733;
+    color-scheme: dark;
+  }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.55;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px 56px;
+  }
+  .wrap { max-width: 1120px; margin-inline: auto; display: flex; flex-direction: column; gap: 22px; }
+  h1, h2, h3, p { margin: 0; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand img { width: 120px; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 22px rgba(40, 30, 20, .22); }
+  .brand h1 { font-size: clamp(24px, 3.4vw, 34px); font-weight: 600; line-height: 1.15; }
+  .brand p { color: var(--muted); font-size: 15px; }
+  .demo-tag { font-size: 14px; background: var(--warn-bg); color: var(--warn); border-radius: 999px; padding: 4px 14px; white-space: nowrap; }
+
+  .persona { background: var(--dark); color: var(--dark-ink); border-radius: 20px; padding: 20px 24px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #8a6634); display: grid; place-items: center; font-size: 26px; font-weight: 600; color: #2b251f; flex: none; }
+  .persona .who { flex: 1; min-width: 200px; }
+  .persona .who strong { font-size: 22px; font-weight: 600; }
+  .persona .who p { color: var(--dark-muted); font-size: 15px; }
+  .persona .meta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { font-size: 14px; border: 1px solid #5a4e42; color: var(--dark-ink); border-radius: 999px; padding: 4px 12px; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+  .stat b { display: block; font-size: 30px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .stat span { color: var(--muted); font-size: 15px; }
+
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+  .tab { font: 500 15px var(--font); color: var(--muted); background: transparent; border: 1px solid transparent; border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+  .tab:hover { color: var(--ink); border-color: var(--line); }
+  .tab[aria-selected="true"] { background: var(--dark); color: var(--gold); border-color: var(--dark); }
+  .tab:focus-visible, button:focus-visible, select:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
+  .tab small { display: block; font-size: 12px; letter-spacing: .04em; opacity: .75; direction: ltr; }
+
+  .panel { display: grid; gap: 16px; animation: fade .35s ease both; }
+  @keyframes fade { from { opacity: .2; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; min-width: 0; }
+  .card h3 { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+  .card .lead { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .trait { display: grid; grid-template-columns: 150px 1fr 40px; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .trait .track { height: 10px; background: var(--card-2); border-radius: 999px; overflow: hidden; }
+  .trait .fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent-soft), var(--accent)); border-radius: 999px; transition: width 1s cubic-bezier(.2, .7, .2, 1); }
+  .trait .val { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; text-align: left; }
+  ul.clean { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  ul.clean li { display: flex; gap: 10px; align-items: flex-start; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 8px; flex: none; }
+  .do { background: var(--good); } .dont { background: #b5523b; } .gold { background: var(--accent); }
+
+  .dilemmas { display: grid; gap: 8px; }
+  .dilemma { text-align: right; font: 400 15px var(--font); color: var(--ink); background: var(--card-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; cursor: pointer; }
+  .dilemma:hover { border-color: var(--accent-soft); }
+  .dilemma[aria-pressed="true"] { background: var(--dark); color: var(--dark-ink); border-color: var(--dark); }
+  .chat { background: var(--dark); color: var(--dark-ink); border-radius: 18px; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; min-height: 420px; }
+  .bubble { background: var(--dark-ink); color: #2a231c; border-radius: 14px 14px 4px 14px; padding: 12px 16px; align-self: flex-start; max-width: 90%; }
+  .ai-head { display: flex; align-items: center; gap: 10px; color: var(--gold); font-weight: 500; }
+  .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: .3; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.1); } }
+  .ai-block { background: var(--dark-2); border-radius: 12px; padding: 12px 14px; }
+  .ai-block h4 { margin: 0 0 6px; font-size: 15px; font-weight: 500; color: var(--gold); }
+  .ai-block ul { margin: 0; padding-inline-start: 18px; color: var(--dark-muted); font-size: 15px; display: grid; gap: 4px; }
+  .ai-block p { color: var(--dark-muted); font-size: 15px; }
+
+  .pill { font-size: 13px; border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+  .pill.good { background: var(--good-bg); color: var(--good); }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); }
+  .pill.info { background: var(--info-bg); color: var(--info); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: right; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 500; font-size: 14px; }
+  td.n { width: 36px; color: var(--accent); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  .goal { margin-bottom: 14px; }
+  .goal-top { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; margin-bottom: 6px; }
+  .goal-top span { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .chart-wrap { overflow-x: auto; }
+  .legend { display: flex; gap: 18px; font-size: 14px; color: var(--muted); margin-top: 8px; flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 14px; height: 4px; border-radius: 2px; vertical-align: middle; margin-inline-end: 6px; }
+
+  footer { font-size: 14px; color: var(--muted); text-align: center; }
+  @media (max-width: 820px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .trait { grid-template-columns: 120px 1fr 36px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .panel, .pulse { animation: none; }
+    .trait .fill { transition: none; }
+  }
+</style>
+
+<div class="wrap" dir="rtl" lang="he">
+  <div class="top">
+    <div class="brand">
+      <img src="logo.png" alt="YK Executive Mentoring">
+      <div>
+        <h1>מרכז ההחלטות שלי</h1>
+        <p>כלי ה־AI של YK Executive Mentoring</p>
+      </div>
+    </div>
+    <span class="demo-tag">דמו · דמות ונתונים בדויים</span>
+  </div>
+
+  <section class="persona" aria-label="המנהלת בליווי">
+    <div class="avatar" aria-hidden="true">ד</div>
+    <div class="who">
+      <strong>דנה כהן</strong>
+      <p>ראש צוות פיתוח מוצר, 12 עובדים. קודמה מתוך הצוות לפני 4 חודשים</p>
+    </div>
+    <div class="meta">
+      <span class="chip">מנהלת חדשה</span>
+      <span class="chip">8 פגישות ליווי</span>
+      <span class="chip">הפגישה הבאה: יום ב׳, 10:00</span>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="סיכום">
+    <div class="stat"><b data-count="14">0</b><span>החלטות תועדו</span></div>
+    <div class="stat"><b data-count="9">0</b><span>תוצאות נמדדו</span></div>
+    <div class="stat"><b data-count="4">0</b><span>בהליכי מעקב</span></div>
+    <div class="stat"><b data-count="2">0</b><span>דפוסים חוזרים</span></div>
+  </section>
+
+  <nav class="tabs" role="tablist" aria-label="כלי ה־AI">
+    <button class="tab" role="tab" id="tab-map" aria-selected="true" aria-controls="p-map">מיפוי אישי<small>AI Personality Map</small></button>
+    <button class="tab" role="tab" id="tab-meeting" aria-selected="false" aria-controls="p-meeting">ליווי פגישות<small>AI Meeting Companion</small></button>
+    <button class="tab" role="tab" id="tab-decision" aria-selected="false" aria-controls="p-decision">בדיקת החלטה<small>AI Decision Check</small></button>
+  </nav>
+
+  <!-- Decision check -->
+  <section class="panel grid-2" id="p-decision" role="tabpanel" aria-labelledby="tab-decision" hidden>
+    <div class="card">
+      <h3>על מה את מתלבטת?</h3>
+      <p class="lead">בחרי דילמה, וה־AI ינתח אותה לפי המיפוי האישי שלך</p>
+      <div class="dilemmas" id="dilemmas"></div>
+    </div>
+    <div class="chat" id="chat" aria-live="polite"></div>
+  </section>
+
+  <!-- Personality map -->
+  <section class="panel" id="p-map" role="tabpanel" aria-labelledby="tab-map">
+    <div class="grid-2">
+      <div class="card">
+        <h3>דפוסי קבלת החלטות</h3>
+        <p class="lead">מתוך שאלון פתיחה ו־8 פגישות</p>
+        <div id="traits"></div>
+      </div>
+      <div class="card">
+        <h3>חוזקות ונקודות עיוורות</h3>
+        <ul class="clean">
+          <li><span class="dot gold"></span><span><b>חוזקה:</b> מכירה את העבודה לעומק, והצוות סומך על המקצועיות שלה</span></li>
+          <li><span class="dot gold"></span><span><b>חוזקה:</b> מחליטה מהר ולא נתקעת</span></li>
+          <li><span class="dot dont"></span><span><b>נקודה עיוורת:</b> לוקחת על עצמה משימות במקום להאציל</span></li>
+          <li><span class="dot dont"></span><span><b>נקודה עיוורת:</b> דוחה שיחות קשות עם חברים לשעבר מהצוות</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <h3>מפת "עשה ואל תעשה" אישית</h3>
+      <div class="grid-2">
+        <ul class="clean">
+          <li><span class="dot do"></span><span>קבעי שיחה אחד על אחד קבועה עם כל עובד</span></li>
+          <li><span class="dot do"></span><span>לפני שאת לוקחת משימה, שאלי: מי בצוות יכול לגדול ממנה?</span></li>
+          <li><span class="dot do"></span><span>אמרי את הדבר הקשה בשבוע שבו הוא קרה</span></li>
+        </ul>
+        <ul class="clean">
+          <li><span class="dot dont"></span><span>אל תתקני בעצמך את העבודה של העובדים</span></li>
+          <li><span class="dot dont"></span><span>אל תחליטי החלטה גדולה ביום שבו קיבלת ביקורת</span></li>
+          <li><span class="dot dont"></span><span>אל תשמרי חדשות רעות למנהל שלך עד שתמצאי פתרון</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meeting companion -->
+  <section class="panel" id="p-meeting" role="tabpanel" aria-labelledby="tab-meeting" hidden>
+    <div class="grid-2">
+      <div class="card">
+        <h3>סיכום הפגישה האחרונה</h3>
+        <p class="lead">פגישה 8 · לפני שבועיים · 60 דקות</p>
+        <ul class="clean">
+          <li><span class="dot gold"></span><span>עלה שדנה עדיין סוגרת בעצמה את רוב הבאגים הדחופים</span></li>
+          <li><span class="dot gold"></span><span>הוחלט: מעבירה את אחריות הגרסה הבאה לעומר, ומלווה אותו בלי להתערב</span></li>
+          <li><span class="dot gold"></span><span>תובנה: הקושי להאציל קשור לחשש שהצוות יראה אותה כפחות מקצועית</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>הכנה לפגישה הבאה</h3>
+        <p class="lead">יום ב׳ · 10:00</p>
+        <ul class="clean">
+          <li><span class="dot do"></span><span>איך הלך שבוע הגרסה עם עומר? איפה היה לך קשה לא להתערב?</span></li>
+          <li><span class="dot do"></span><span>השיחה עם נועם על הביצועים: נקבע מועד?</span></li>
+          <li><span class="dot do"></span><span>תרגול: איך מציגים למנהל יעד שנראה לא ריאלי</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <h3>משימות מהפגישות</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>משימה</th><th>יעד</th><th>מצב</th></tr></thead>
+          <tbody>
+            <tr><td class="n">1</td><td>להעביר את אחריות הגרסה לעומר</td><td>סוף החודש</td><td><span class="pill info">בתהליך</span></td></tr>
+            <tr><td class="n">2</td><td>שיחת משוב עם נועם</td><td>השבוע</td><td><span class="pill warn">נדחה פעמיים</span></td></tr>
+            <tr><td class="n">3</td><td>פגישות אחד על אחד קבועות</td><td>הושלם</td><td><span class="pill good">בוצע</span></td></tr>
+            <tr><td class="n">4</td><td>יום קבוע בשבוע לצאת מוקדם למשפחה</td><td>כל יום ד׳, 16:00</td><td><span class="pill good">בוצע 3 שבועות רצוף</span></td></tr>
+            <tr><td class="n">5</td><td>בלי מיילים והודעות עבודה אחרי שעת השינה של הילדים</td><td>כל ערב</td><td><span class="pill info">בתהליך</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer>דמו להמחשה בלבד. כל השמות, ההחלטות והמספרים בדויים.</footer>
+</div>
+
+<script>
+  const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const dilemmas = [
+    {
+      q: 'חבר לשעבר מהצוות לא מקבל את הסמכות שלי מאז שקודמתי',
+      points: ['השינוי במעמד קרה בבת אחת, אבל הקשר ביניכם עוד לא הוגדר מחדש', 'ההתנגדות שלו גלויה לצוות, ולכן היא משפיעה גם על אחרים'],
+      questions: ['מה הוא מאבד מהקידום שלך? ייתכן שגם הוא רצה את התפקיד', 'מה בדיוק את מצפה ממנו, במשפט אחד?'],
+      options: ['שיחה אישית שמגדירה מחדש את הקשר', 'לתת לו אחריות על תחום שבו הוא מוביל', 'לחכות ולראות'],
+      risk: 'לחכות נראה בטוח, אבל הצוות לומד ממנו מה מותר',
+      bias: 'לפי המיפוי שלך את נוטה לדחות שיחות קשות עם חברים. זו בדיוק שיחה כזו'
+    },
+    {
+      q: 'להאציל את הפרויקט החשוב של הרבעון או לעשות אותו בעצמי?',
+      points: ['הפרויקט חשוב לך, ולכן הדחף לעשות אותו לבד חזק', 'אם תעשי אותו בעצמך, הצוות לא ילמד ואת תישחקי'],
+      questions: ['מה הדבר הגרוע ביותר שיקרה אם עומר יוביל ויטעה?', 'איזה חלק בפרויקט באמת חייב אותך?'],
+      options: ['להאציל את כל הפרויקט עם נקודות בדיקה קבועות', 'לפצל: את מובילה את האסטרטגיה, הצוות מבצע', 'לעשות לבד'],
+      risk: 'האצלה בלי נקודות בדיקה עלולה להפתיע אותך מאוחר מדי',
+      bias: 'דפוס חוזר אצלך: לקחת משימות במקום להאציל, מחשש להיראות פחות מקצועית'
+    },
+    {
+      q: 'עובד ותיק עם ביצועים נמוכים: שיחה קשה עכשיו או לחכות לסוף הרבעון?',
+      points: ['כל שבוע שעובר בלי שיחה, הבעיה נראית לגיטימית', 'עובד ותיק יודע הרבה, וכדאי להבין מה השתנה אצלו'],
+      questions: ['האם הוא יודע שאת לא מרוצה? איך את יודעת?', 'מה תגידי אם הסיבה אישית?'],
+      options: ['שיחה השבוע, עם שתי דוגמאות ויעד ברור', 'לבדוק קודם עם משאבי אנוש', 'לחכות לסוף הרבעון'],
+      risk: 'לחכות לסוף הרבעון אומר עוד חודשיים של ביצועים נמוכים ותסכול בצוות',
+      bias: 'השיחה נדחתה כבר פעמיים. כדאי לשאול מה גורם לדחייה'
+    },
+    {
+      q: 'המנהל שלי ביקש יעד שנראה לי לא ריאלי',
+      points: ['מנהל חדש שאומר "לא" עלול להיראות חלש, אבל יעד שנכשל פוגע יותר', 'ייתכן שלמנהל יש מידע שאין לך'],
+      questions: ['על סמך מה היעד לא ריאלי? יש לך מספרים?', 'מה כן אפשר להבטיח, ובאיזה מחיר?'],
+      options: ['להציג לו שלוש חלופות עם המחיר של כל אחת', 'לקבל ולנסות', 'לבקש עוד משאבים'],
+      risk: 'לקבל בלי לומר כלום ולהיכשל, זה הרע מכולם',
+      bias: 'את נוטה לשמור חדשות רעות עד שיש פתרון. כאן עדיף לדבר מוקדם'
+    }
+  ];
+
+  const list = document.getElementById('dilemmas');
+  const chat = document.getElementById('chat');
+  let typing = 0;
+
+  dilemmas.forEach((d, i) => {
+    const b = document.createElement('button');
+    b.className = 'dilemma';
+    b.type = 'button';
+    b.textContent = d.q;
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', () => pick(i));
+    list.appendChild(b);
+  });
+
+  function block(title, items) {
+    const div = document.createElement('div');
+    div.className = 'ai-block';
+    const h = document.createElement('h4');
+    h.textContent = title;
+    div.appendChild(h);
+    if (Array.isArray(items)) {
+      const ul = document.createElement('ul');
+      items.forEach(t => { const li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+      div.appendChild(ul);
+    } else {
+      const p = document.createElement('p'); p.textContent = items; div.appendChild(p);
+    }
+    return div;
+  }
+
+  function pick(i) {
+    const run = ++typing;
+    [...list.children].forEach((b, j) => b.setAttribute('aria-pressed', String(i === j)));
+    const d = dilemmas[i];
+    chat.innerHTML = '';
+    const q = document.createElement('div');
+    q.className = 'bubble';
+    q.textContent = d.q;
+    chat.appendChild(q);
+    const head = document.createElement('div');
+    head.className = 'ai-head';
+    head.innerHTML = '<span class="pulse"></span><span>מנתח לפי המיפוי האישי שלך…</span>';
+    chat.appendChild(head);
+    const parts = [
+      block('נקודות מפתח לבחינה', d.points),
+      block('שאלות שמאתגרות את החשיבה', d.questions),
+      block('חלופות לשקול', d.options),
+      block('סיכון', d.risk),
+      block('הטיה אפשרית אצלך', d.bias)
+    ];
+    const delay = calm ? 0 : 420;
+    parts.forEach((p, k) => setTimeout(() => {
+      if (run !== typing) return;
+      chat.appendChild(p);
+      if (!calm) p.animate([{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'ease-out' });
+      if (k === parts.length - 1) head.querySelector('span:last-child').textContent = 'ניתוח מותאם לך';
+    }, delay * (k + 1)));
+  }
+  pick(1);
+
+  // Personality traits
+  const traits = [['מחליטה מהר', 82], ['קושי להאציל', 74], ['הימנעות מעימות', 66], ['חשיבה אנליטית', 79], ['פתיחות למשוב', 71]];
+  const tWrap = document.getElementById('traits');
+  traits.forEach(([name, v]) => {
+    const row = document.createElement('div');
+    row.className = 'trait';
+    row.innerHTML = '<span></span><div class="track"><div class="fill"></div></div><span class="val"></span>';
+    row.children[0].textContent = name;
+    row.querySelector('.val').textContent = v;
+    row.querySelector('.fill').dataset.w = v;
+    tWrap.appendChild(row);
+  });
+
+  function growBars(scope) {
+    scope.querySelectorAll('.fill').forEach(f => { f.style.width = '0'; requestAnimationFrame(() => requestAnimationFrame(() => { f.style.width = f.dataset.w + '%'; })); });
+  }
+
+  // Tabs
+  const tabs = [...document.querySelectorAll('.tab')];
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(o => {
+      const on = o === t;
+      o.setAttribute('aria-selected', String(on));
+      document.getElementById(o.getAttribute('aria-controls')).hidden = !on;
+    });
+    const panel = document.getElementById(t.getAttribute('aria-controls'));
+    growBars(panel);
+    if (panel.id === 'p-decision') pick(1);
+  }));
+  growBars(document.getElementById('p-map'));
+
+  // Count-up stats
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const to = +el.dataset.count;
+    if (calm) { el.textContent = to; return; }
+    const start = performance.now();
+    const step = now => { const t = Math.min(1, (now - start) / 900); el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3))); if (t < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+</script>

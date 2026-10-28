@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>YK Executive Mentoring</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; background: #14110e; overflow: hidden; }
+  #viewport { position: fixed; inset: 0; overflow: hidden; }
+  #stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: center center; }
+  section {
+    position: absolute; inset: 0; width: 1920px; height: 1080px; box-sizing: border-box;
+    display: flex; flex-direction: column; overflow: hidden;
+    font-family: Rubik, Arial, sans-serif; color: #2a231c;
+    opacity: 0; visibility: hidden; transition: opacity .55s ease, visibility 0s linear .55s;
+  }
+  section.on { opacity: 1; visibility: visible; transition: opacity .55s ease; }
+  section *, section *::before, section *::after { box-sizing: border-box; }
+  section div { display: flex; flex-direction: column; }
+  section h1, section h2, section h3, section p { margin: 0; }
+  section h1 { font-size: 96px; font-weight: 600; line-height: 1.1; }
+  section h2 { font-size: 64px; font-weight: 600; line-height: 1.15; }
+  section h3 { font-size: 44px; font-weight: 600; line-height: 1.2; }
+  section p { font-size: 32px; line-height: 1.4; }
+  section img { display: block; flex: none; }
+  section svg { flex: none; }
+  section a { color: inherit; text-decoration: underline; text-underline-offset: 4px; }
+  .crop { flex: none; background-repeat: no-repeat; }
+  section.on [data-build-in] { animation: rise .9s cubic-bezier(.2, .7, .2, 1) .25s both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+
+  #nav { position: fixed; bottom: max(16px, env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%);
+         display: flex; align-items: center; gap: 12px; background: rgba(20, 17, 14, .72); backdrop-filter: blur(8px);
+         border: 1px solid rgba(212, 176, 122, .35); border-radius: 999px; padding: 6px 10px; z-index: 10;
+         font: 500 15px Rubik, Arial, sans-serif; color: #f2ece2; transition: opacity .3s; }
+  #nav button { width: 40px; height: 40px; border-radius: 50%; border: 0; background: transparent; color: #d4b07a;
+                font-size: 22px; cursor: pointer; display: grid; place-items: center; }
+  #nav button:hover { background: rgba(212, 176, 122, .15); }
+  #nav button:focus-visible { outline: 2px solid #d4b07a; outline-offset: 2px; }
+  #count { min-width: 64px; text-align: center; font-variant-numeric: tabular-nums; direction: ltr; }
+  body.idle #nav { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    section, section.on { transition: none; }
+    section.on [data-build-in] { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+<section id="cover" data-transition="fade" style="background:radial-gradient(ellipse at 50% 35%, #f6f0e6 0%, #e6daca 100%)">
+  <img src="assets/logo.png" alt="YK Executive Mentoring" id="p414e363b4c36r0-ac685138" style="position:absolute; top:40px; left:50%; width:684.85px; height:462.8px; border-radius:16px; box-shadow:0 16px 40px #3c2d1e40; transform:translateX(-50%)">
+  <div style="position:absolute; top:526px; left:900px; width:120px; height:2px; background:#b08a55"></div>
+  <h1 id="cfaf6962" style="position:absolute; top:556px; left:50%; width:600px; font-family:Rubik, Arial, sans-serif; font-size:64px; font-weight:300; line-height:1.2; text-align:center; white-space:nowrap; color:#2a231c; transform:translateX(-50%)">לכל מנהל יש מנהל</h1>
+  <h1 id="4b19a4b1" style="position:absolute; top:640px; left:50%; width:916px; font-family:Rubik, Arial, sans-serif; font-size:64px; font-weight:300; line-height:1.2; text-align:center; white-space:nowrap; color:#2a231c; transform:translateX(-50%)">אבל לא לכל מנהל יש <span style="color:#8a6634"><b>עם מי להתייעץ</b></span></h1>
+  <p id="9e1f0c1d" style="position:absolute; top:770px; left:310px; width:1300px; font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:300; line-height:1.6; text-align:center; color:#5a4e42">יובל, חשבתי על כל הפעמים שבהן התקשרתי אליך להתייעץ. לא כי לא ידעתי לעשות את העבודה שלי, אלא כי היו מצבים שבהם הייתי צריכה מישהו <b>מנוסה </b>שיעזור לי להבין איך נכון לפעול <b>מהשכל ולא מהבטן.‏</b></p>
+  <p id="c8de24ce" style="position:absolute; top:890px; left:310px; width:1300px; font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:300; line-height:1.6; text-align:center; color:#5a4e42">ואז הבנתי משהו — יש עוד המון מנהלים שמתמודדים עם אותן התלבטויות,‏ <span style="color:#8a6634">אבל </span><span style="color:#8a6634"><b>לא לכולם יש יובל.‏</b></span></p>
+  
+</section>
+
+<section id="data" data-transition="fade" style="background:radial-gradient(ellipse at 50% 30%, #f6f0e6 0%, #e6daca 100%); color:#2a231c; font-family:'Rubik', Arial, sans-serif; padding:56px 128px 64px; display:flex; flex-direction:column; align-items:stretch; justify-content:center; gap:32px">
+<div style="display:flex; flex-direction:column; align-items:end; gap:10px">
+<h2 style="font-family:'Rubik', Arial, sans-serif; font-size:60px; font-weight:500; line-height:1.15; text-align:right; color:#2a231c">מנהלים בכירים פועלים <span style="color:#8a6634">כמעט לבד.&#8207;</span></h2>
+<p style="font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">המספרים שמאחורי הבדידות הניהולית, והצורך במנטורינג אמיתי</p>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr; gap:20px">
+<div style="position:relative; grid-column:span 3; display:flex; flex-direction:column; align-items:end; gap:10px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 40px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+<svg aria-label="מעגל של חברים ועמיתים סביב מנהל" viewBox="0 0 140 120" width="140" height="120" style="position:absolute; left:40px; top:32px; width:140px; height:120px; opacity:0.3"><g fill="none" stroke="#8a6634" stroke-width="4" stroke-linecap="round"><circle cx="70" cy="40" r="14"/><path d="M46 92 Q46 64 70 64 Q94 64 94 92"/><circle cx="28" cy="52" r="10" stroke-dasharray="5 5"/><path d="M10 96 Q10 76 28 76 Q46 76 46 96" stroke-dasharray="5 5"/><circle cx="112" cy="52" r="10" stroke-dasharray="5 5"/><path d="M94 96 Q94 76 112 76 Q130 76 130 96" stroke-dasharray="5 5"/><path d="M20 110 Q70 124 120 110" stroke-dasharray="2 7"/></g></svg>
+<p style="font-size:24px; font-weight:500; letter-spacing:2px; color:#b08a55">02</p>
+<p style="font-size:110px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">82%</p>
+<p style="font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#2a231c">מהמנכ"לים מתייעצים עם <b>מעגל לא רשמי</b> של חברים ועמיתים לשאלות רגישות</p>
+<div style="flex:1"></div>
+<p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.gsb.stanford.edu/faculty-research/publications/2025-ceo-coaching-kitchen-cabinet-survey" target="_blank" rel="noopener">Stanford GSB, 2025</a></p>
+</div>
+<div style="position:relative; grid-column:span 3; display:flex; flex-direction:column; align-items:end; gap:10px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 40px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+<svg aria-label="מנהל לבד ליד כיסא ריק של יועץ" viewBox="0 0 140 120" width="140" height="120" style="position:absolute; left:40px; top:32px; width:140px; height:120px; opacity:0.3"><g fill="none" stroke="#8a6634" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="38" cy="34" r="14"/><path d="M14 90 Q14 60 38 60 Q62 60 62 90"/><path d="M88 56 L88 98 M88 76 L122 76 L122 98 M118 76 L118 40" stroke-dasharray="6 6"/><path d="M6 108 L134 108"/></g></svg>
+<p style="font-size:24px; font-weight:500; letter-spacing:2px; color:#b08a55">01</p>
+<div style="display:flex; flex-direction:row; align-items:end; gap:16px">
+<p style="font-size:110px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">3</p>
+<p style="font-size:44px; font-weight:400; line-height:1.6; color:#8a6634">מתוך</p>
+<p style="font-size:110px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">2</p>
+</div>
+<p style="font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#2a231c">מנכ"לים <b>לא מקבלים שום ליווי</b> או ייעוץ ניהולי מבחוץ</p>
+<div style="flex:1"></div>
+<p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.gsb.stanford.edu/insights/david-larcker-lonely-top-resonates-most-ceos" target="_blank" rel="noopener">Stanford GSB, 2013</a></p>
+</div>
+<div style="position:relative; grid-column:span 2; display:flex; flex-direction:column; align-items:end; gap:10px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 40px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+<svg aria-label="גרף עולה של שוק בצמיחה" viewBox="0 0 120 110" width="120" height="110" style="position:absolute; left:36px; top:32px; width:120px; height:110px; opacity:0.3"><g fill="none" stroke="#8a6634" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 100 L110 100"/><path d="M22 100 L22 76 M44 100 L44 64 M66 100 L66 52 M88 100 L88 36"/><path d="M14 60 L40 42 L62 48 L104 14"/><path d="M86 14 L104 14 L104 32"/></g></svg>
+<p style="font-size:24px; font-weight:500; letter-spacing:2px; color:#b08a55">05</p>
+<p style="font-size:96px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">$5.34B</p>
+<p style="font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#2a231c"><b>גודל שוק האימון העולמי</b> בשנה, ו־56% מהמאמנים עובדים בעיקר עם מנהלים ובכירים</p>
+<div style="flex:1"></div>
+<p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://coachingfederation.org/blog/coaching-industry-continues-global-growth-with-5-34-billion-usd-revenue-new-research-reveals/" target="_blank" rel="noopener">ICF, 2025</a></p>
+</div>
+<div style="position:relative; grid-column:span 2; display:flex; flex-direction:column; align-items:end; gap:10px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 40px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+<svg aria-label="שולחן דירקטוריון" viewBox="0 0 120 110" width="120" height="110" style="position:absolute; left:36px; top:32px; width:120px; height:110px; opacity:0.3"><g fill="none" stroke="#8a6634" stroke-width="4" stroke-linecap="round"><rect x="30" y="34" width="60" height="42" rx="10"/><circle cx="45" cy="18" r="7"/><circle cx="75" cy="18" r="7"/><circle cx="45" cy="92" r="7"/><circle cx="75" cy="92" r="7"/><circle cx="14" cy="55" r="7"/><circle cx="106" cy="55" r="7"/></g></svg>
+<p style="font-size:24px; font-weight:500; letter-spacing:2px; color:#b08a55">04</p>
+<p style="font-size:96px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">6%</p>
+<p style="font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#2a231c">בלבד מהמנכ"לים בישראל ציינו את <b>ההתייעצות עם הדירקטוריון</b> ככלי ניהולי יעיל</p>
+<div style="flex:1"></div>
+<p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.globes.co.il/news/article.aspx?did=1001348845" target="_blank" rel="noopener">גלובס, 2020</a></p>
+</div>
+<div style="position:relative; grid-column:span 2; display:flex; flex-direction:column; align-items:end; gap:10px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 40px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+<svg aria-label="גרף נתונים מושמט" viewBox="0 0 120 110" width="120" height="110" style="position:absolute; left:36px; top:32px; width:120px; height:110px; opacity:0.3"><g fill="none" stroke="#8a6634" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 100 L110 100"/><path d="M26 100 L26 70 M50 100 L50 50 M74 100 L74 62 M98 100 L98 34"/><path d="M14 22 L106 88"/></g></svg>
+<p style="font-size:24px; font-weight:500; letter-spacing:2px; color:#b08a55">03</p>
+<p style="font-size:96px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">67%</p>
+<p style="font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#2a231c">מהמנכ"לים <b>התעלמו מנתונים</b> כי הם סתרו את הניסיון או האינטואיציה שלהם</p>
+<div style="flex:1"></div>
+<p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://assets.kpmg.com/content/dam/kpmg/xx/pdf/2018/05/growing-pains.pdf" target="_blank" rel="noopener">KPMG, 2018</a></p>
+</div>
+</div>
+<p style="position:absolute; right:128px; bottom:20px; width:80px; font-size:24px; text-align:right; color:#8c7f6e">04</p>
+
+</section>
+
+<section id="emotion" data-transition="fade" style="display:flex; flex-direction:row; padding:0; background:radial-gradient(ellipse at 50% 30%, #f6f0e6 0%, #e6daca 100%)">
+  <img src="assets/emotion-photo.jpg" alt="מנהל עומד בצומת: מצד אחד שלטי היגיון (נתונים, ניתוח, תכנון, סיכונים, שיקול דעת), מצד שני שלטי רגש (פזיזות, אגו, עקשנות)" style="width:620px; height:1080px; object-fit:cover">
+  <div style="display:flex; flex-direction:column; gap:24px; justify-content:center; flex:1; padding:56px 96px 64px 48px">
+    <div style="display:flex; flex-direction:column; gap:10px; align-items:end">
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:400; letter-spacing:6px; text-align:right; color:#8a6634">EMOTION &amp; REASON</p>
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:60px; font-weight:500; line-height:1.15; text-align:right; color:#2a231c">מנהלים מחליטים הרבה <span style="color:#8a6634">מהבטן.‏</span></h2>
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">והמנטור עוזר לעצור ולחשוב גם בשכל</p>
+    </div>
+    <div style="display:grid; gap:24px; grid-template-columns:1fr 1fr">
+      <div style="display:flex; flex-direction:column; gap:20px; align-items:end; padding:32px 36px; background:#2b251f; border-radius:24px; box-shadow:0 12px 32px #3c2d1e2e">
+        <h3 style="font-family:Rubik, Arial, sans-serif; font-size:32px; font-weight:500; text-align:right; color:#d4b07a">מבט מבחוץ מחזיר את השכל</h3>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:end">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.3; text-align:right; color:#f2ece2">על הבעיה של מישהו אחר, כולנו חכמים יותר</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#d2c8b8">כשמסתכלים על הבעיה שלנו מבחוץ, הפער נעלם. בכל גיל</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://uwaterloo.ca/wisdom-and-culture-lab/sites/default/files/uploads/files/grossmann_kross_-_exploring_solomons_paradox_-_article_proof.pdf" target="_blank" rel="noopener">Grossmann &amp; Kross, 2014</a></p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:end">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.3; text-align:right; color:#f2ece2">איך חושבים חשוב פי 6 ממה שיודעים</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#d2c8b8">ב־1,048 החלטות גדולות, תהליך החשיבה השפיע על התוצאות פי 6 יותר מניתוח הנתונים</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/the-case-for-behavioral-strategy" target="_blank" rel="noopener">McKinsey, 2010</a></p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:end">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.3; text-align:right; color:#f2ece2">את ההטיות של עצמנו אי אפשר לתקן לבד</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#d2c8b8">גם כשאנחנו יודעים שהרגש משפיע עלינו, קשה לנו לתקן את זה בעצמנו. מישהו מבחוץ רואה מה שאנחנו לא רואים</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://hbr.org/2011/06/the-big-idea-before-you-make-that-big-decision" target="_blank" rel="noopener">Daniel Kahneman, HBR 2011</a></p>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px; align-items:end; padding:32px 36px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; box-shadow:0 12px 32px #3c2d1e1a">
+        <h3 style="font-family:Rubik, Arial, sans-serif; font-size:32px; font-weight:500; text-align:right; color:#8a6634">הבטן מובילה</h3>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:end">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.3; text-align:right; color:#2a231c">כשהנתונים סותרים את הבטן, הבטן מנצחת</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">67% מהמנכ"לים התעלמו מנתונים כי הם סתרו את הניסיון או האינטואיציה שלהם</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://assets.kpmg.com/content/dam/kpmg/xx/pdf/2018/05/growing-pains.pdf" target="_blank" rel="noopener">KPMG Global CEO Outlook, 2018</a></p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:end">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.3; text-align:right; color:#2a231c">הרגש נמצא בכל החלטה</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">35 שנות מחקר: רגשות הם מניע חזק ונפוץ של החלטות, לפעמים לטובה ולפעמים לרעה</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.hks.harvard.edu/publications/emotion-and-decision-making" target="_blank" rel="noopener">Lerner et al., Harvard, 2015</a></p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px; align-items:end">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.3; text-align:right; color:#2a231c">גם בישראל, הבטן היא כלי עבודה</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">39% מהמנכ"לים בישראל ציינו אינטואיציה ותחושת בטן ככלי חשוב בניהול משבר הקורונה</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.globes.co.il/news/article.aspx?did=1001348845" target="_blank" rel="noopener">סקר המנכ"לים, גלובס 2020</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute; top:0; left:400px; width:230px; height:1080px; display:flex; flex-direction:column; background:linear-gradient(90deg, #eee5d800 0%, #eee5d899 50%, #eee5d8 100%)">
+  </div>
+  <div style="position:absolute; top:0; left:0; width:630px; height:90px; display:flex; flex-direction:column; background:linear-gradient(180deg, #f2ebe099 0%, #f2ebe000 100%)">
+  </div>
+  <div style="position:absolute; top:990px; left:0; width:630px; height:90px; display:flex; flex-direction:column; background:linear-gradient(0deg, #e8dece99 0%, #e8dece00 100%)">
+  </div>
+  <p style="position:absolute; right:96px; bottom:20px; width:80px; font-family:Rubik, Arial, sans-serif; font-size:24px; text-align:right; color:#8c7f6e">05</p>
+  
+</section>
+
+<section id="problem" data-transition="fade" style="display:flex; flex-direction:row; padding:0; background:radial-gradient(ellipse at 50% 35%, #f6f0e6 0%, #e6daca 100%)">
+  <img src="assets/problem-photo.jpg" alt="מנהל עומד בצומת החלטות מול שלטים: קידום, תפקיד חדש, משכורת, איזון עבודה-חיים" style="width:700px; height:1080px; object-fit:cover">
+  <div style="position:absolute; left:400px; top:0px; width:310px; height:1080px; background:linear-gradient(to right, rgba(238,229,216,0) 0%, rgba(238,229,216,0.6) 50%, #EEE5D8 100%)"></div>
+  <div style="position:absolute; left:0px; top:0px; width:710px; height:100px; background:linear-gradient(to bottom, rgba(242,235,224,0.7) 0%, rgba(242,235,224,0) 100%)"></div>
+  <div style="position:absolute; left:0px; top:980px; width:710px; height:100px; background:linear-gradient(to top, rgba(232,222,206,0.7) 0%, rgba(232,222,206,0) 100%)"></div>
+  <div style="display:flex; flex-direction:column; gap:28px; flex:1; padding:64px 128px 56px 80px">
+    <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:400; letter-spacing:6px; text-align:right; color:#8a6634">THE PROBLEM</p>
+    <div style="display:flex; flex-direction:column; gap:4px; align-items:end">
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:56px; font-weight:300; line-height:1.15; text-align:right; color:#2a231c">מנהלים מתמודדים עם החלטות מורכבות –‏</h2>
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:56px; font-weight:500; line-height:1.15; text-align:right; color:#2a231c">ובדרך כלל אין להם עם מי להתייעץ</h2>
+    </div>
+    <div style="display:grid; gap:20px; grid-template-columns:1fr 1fr 1fr">
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:end; padding:24px 28px; background:#fbf8f3; border:1px solid #e6daca; border-radius:16px">
+        <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">התלבטויות ניהוליות</h3>
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px; height:36px; color:#8a6634" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">אנשים, מטרות, עדיפויות והחלטות לא פשוטות</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:end; padding:24px 28px; background:#fbf8f3; border:1px solid #e6daca; border-radius:16px">
+        <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">שיחות מאתגרות</h3>
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px; height:36px; color:#8a6634" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">מה נכון להגיד, איך להציף, איך להשפיע בלי ליצור חיכוך</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:end; padding:24px 28px; background:#fbf8f3; border:1px solid #e6daca; border-radius:16px">
+        <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">התפתחות וקידום</h3>
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px; height:36px; color:#8a6634" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">איך לבקש העלאה, איך לחתור לתפקיד הבא, ואיך לבנות את המסלול הנכון</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:end; padding:24px 28px; background:#fbf8f3; border:1px solid #e6daca; border-radius:16px">
+        <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">דינמיקות ארגוניות</h3>
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px; height:36px; color:#8a6634" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">פוליטיקה, בעלי עניין, התמודדות עם שינויים ואי־ודאות</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:end; padding:24px 28px; background:#fbf8f3; border:1px solid #e6daca; border-radius:16px">
+        <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">תחושת בדידות</h3>
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px; height:36px; color:#8a6634" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">תפקידי ניהול מגיעים עם אחריות גדולה, ולעיתים גם עם בדידות בקבלת החלטות</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:end; padding:24px 28px; background:#fbf8f3; border:1px solid #e6daca; border-radius:16px">
+        <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">צמיחה אישית ומקצועית</h3>
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px; height:36px; color:#8a6634" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">איך להשתפר, ללמוד מטעויות, ולפתח ביטחון והשפעה ניהולית</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:40px; align-items:center; padding:28px 48px; background:#2b251f; border-radius:20px">
+      <div style="display:flex; flex-direction:column; gap:6px; align-items:center">
+        <div style="display:flex; flex-direction:row; gap:14px; align-items:end">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:32px; font-weight:300; color:#f2ece2">מתוך 3</p>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:72px; font-weight:500; line-height:1; color:#d4b07a">2</p>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:center; color:#d2c8b8">מנכ"לים לא מקבלים ליווי<br>או ייעוץ ניהולי מבחוץ</p>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; text-align:center; color:#9a8c78"><a href="https://www.gsb.stanford.edu/insights/david-larcker-lonely-top-resonates-most-ceos" target="_blank" rel="noopener">Stanford GSB, 2013</a></p>
+      </div>
+      <div style="width:2px; height:140px; display:flex; flex-direction:column; background:#6b5d4d">
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:end; flex:1">
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:300; line-height:1.5; text-align:right; color:#f2ece2">מנהלים מקבלים החלטות שמשפיעות על הקריירה שלהם, על הצוותים שלהם ועל הארגון –‏ <span style="color:#d4b07a">אבל לרוב עושים זאת לבד.‏</span></p>
+      </div>
+    </div>
+  </div>
+  <p id="e3-1gp23mk" style="position:absolute; right:128px; bottom:24px; width:80px; font-family:Rubik, Arial, sans-serif; font-size:24px; text-align:right; color:#8c7f6e">02</p>
+  
+</section>
+
+<section id="ourway" data-transition="fade" style="display:flex; flex-direction:row; padding:0; background:radial-gradient(ellipse at 30% 30%, #f6f0e6 0%, #e6daca 100%); color:#2a231c; font-family:'Rubik', Arial, sans-serif">
+  <div style="width:1020px; display:flex; flex-direction:column; align-items:end; justify-content:center; gap:28px; padding:64px 64px 72px 112px">
+    <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+      <p style="font-size:24px; font-weight:400; letter-spacing:2px; text-align:right; color:#8a6634">הפתרון שלנו</p>
+      <div style="width:40px; height:2px; background:#b08a55"></div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:end; gap:0px">
+      <h1 style="font-family:'Rubik', Arial, sans-serif; font-size:88px; font-weight:600; line-height:1.05; text-align:right; color:#2a231c">לא צריך לקבל</h1>
+      <h1 style="font-family:'Rubik', Arial, sans-serif; font-size:88px; font-weight:600; line-height:1.05; text-align:right; color:#2a231c">החלטות <span style="color:#b08a55">לבד.&#8207;</span></h1>
+    </div>
+    <p style="font-size:30px; font-weight:300; line-height:1.5; text-align:right; color:#5a4e42">שותף לחשיבה ניהולית. אובייקטיבי, דיסקרטי, שמאתגר הנחות ועוזר למנהלים לראות את התמונה המלאה לפני כל החלטה.&#8207;</p>
+    <div style="width:844px; display:grid; grid-template-columns:1fr 1fr; gap:32px 40px">
+      <div style="display:flex; flex-direction:row; align-items:center; justify-content:end; gap:20px">
+        <div style="display:flex; flex-direction:column; align-items:end; gap:4px">
+          <h3 style="font-family:'Rubik', Arial, sans-serif; font-size:30px; font-weight:500; text-align:right; color:#2a231c">מקום להתייעץ</h3>
+          <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">שיחה פתוחה על הדילמות האמיתיות של המנהל</p>
+        </div>
+        <div style="width:80px; height:80px; flex:none; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px; height:40px; color:#d4b07a" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; justify-content:end; gap:20px">
+        <div style="display:flex; flex-direction:column; align-items:end; gap:4px">
+          <h3 style="font-family:'Rubik', Arial, sans-serif; font-size:30px; font-weight:500; text-align:right; color:#2a231c">חשיבה ביקורתית</h3>
+          <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">שאלות שמאתגרות את נקודת המבט של המנהל</p>
+        </div>
+        <div style="width:80px; height:80px; flex:none; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px; height:40px; color:#d4b07a" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; justify-content:end; gap:20px">
+        <div style="display:flex; flex-direction:column; align-items:end; gap:4px">
+          <h3 style="font-family:'Rubik', Arial, sans-serif; font-size:30px; font-weight:500; text-align:right; color:#2a231c">פרספקטיבה אובייקטיבית</h3>
+          <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">ניסיון רב, בלי אינטרסים</p>
+        </div>
+        <div style="width:80px; height:80px; flex:none; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg aria-label="מאזניים" viewBox="0 0 40 40" width="40" height="40" style="width:40px; height:40px"><g fill="none" stroke="#d4b07a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 L20 34 M12 34 L28 34 M8 10 L32 10"/><path d="M8 10 L3 22 Q8 26 13 22 Z"/><path d="M32 10 L27 22 Q32 26 37 22 Z"/></g></svg></div>
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; justify-content:end; gap:20px">
+        <div style="display:flex; flex-direction:column; align-items:end; gap:4px">
+          <h3 style="font-family:'Rubik', Arial, sans-serif; font-size:30px; font-weight:500; text-align:right; color:#2a231c">מרחב דיסקרטי</h3>
+          <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">שיח בטוח וסודי, ברמה הגבוהה ביותר</p>
+        </div>
+        <div style="width:80px; height:80px; flex:none; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px; height:40px; color:#d4b07a" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      </div>
+    </div>
+    <p style="font-size:30px; font-weight:500; text-align:right; color:#2a231c; background:#fbf8f3; border:2px solid #b08a55; border-radius:999px; padding:20px 44px">לא מחליפים את שיקול הדעת של המנהל.‏ <span style="color:#8a6634">משפרים אותו.&#8207;</span></p>
+  </div>
+  <img src="assets/ourway-photo.jpg" alt="מנהל יושב מול מנטור וירטואלי זוהר בחדר ישיבות מול נוף העיר בשקיעה" data-crop="1 50% 62%" style="width:900px; height:1080px; object-fit:cover">
+  <div style="position:absolute; left:1010px; top:0px; width:240px; height:1080px; background:linear-gradient(to left, rgba(238,229,216,0) 0%, rgba(238,229,216,0.6) 50%, #EEE5D8 100%)"></div>
+  <div style="position:absolute; left:1010px; top:0px; width:910px; height:90px; background:linear-gradient(to bottom, rgba(242,235,224,0.6) 0%, rgba(242,235,224,0) 100%)"></div>
+  <div style="position:absolute; left:1010px; top:990px; width:910px; height:90px; background:linear-gradient(to top, rgba(232,222,206,0.6) 0%, rgba(232,222,206,0) 100%)"></div>
+  <p style="position:absolute; left:112px; bottom:24px; width:80px; font-size:24px; color:#8c7f6e">06</p>
+  
+</section>
+
+<section id="audience" data-transition="fade" style="background:radial-gradient(ellipse at 50% 25%, #f6f0e6 0%, #e6daca 100%); color:#2a231c; font-family:'Rubik', Arial, sans-serif; padding:64px 128px 80px; display:flex; flex-direction:column; align-items:stretch; justify-content:center; gap:36px">
+  <div style="display:flex; flex-direction:column; align-items:end; gap:12px">
+    <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+      <p style="font-size:24px; font-weight:400; letter-spacing:2px; text-align:right; color:#8a6634">קהלי היעד</p>
+      <div style="width:40px; height:2px; background:#b08a55"></div>
+    </div>
+    <h2 style="font-family:'Rubik', Arial, sans-serif; font-size:60px; font-weight:600; line-height:1.15; text-align:right; color:#2a231c">הרגע הכי בודד בקריירה:‏ <span style="color:#8a6634">התפקיד הראשון.&#8207;</span></h2>
+    <p style="font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">שני קהלים שנכנסים לתפקיד חדש, בלי הכנה ובלי עם מי להתייעץ</p>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px">
+    <div style="display:flex; flex-direction:column; align-items:stretch; gap:22px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:36px 44px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+      <div style="display:flex; flex-direction:row; align-items:center; justify-content:end; gap:16px">
+        <div style="display:flex; flex-direction:column; align-items:end; gap:2px">
+          <h3 style="font-family:'Rubik', Arial, sans-serif; font-size:36px; font-weight:600; text-align:right; color:#2a231c">מנהלים חדשים</h3>
+          <p style="font-size:24px; font-weight:300; text-align:right; color:#5a4e42">קודמו לניהול, בלי שמישהו הכין אותם</p>
+        </div>
+        <div style="width:72px; height:72px; flex:none; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px; height:36px; color:#d4b07a" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      </div>
+      <div style="height:1px; background:#e3d5c0"></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:24px">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:end; gap:2px">
+          <p style="font-size:26px; font-weight:400; line-height:1.35; text-align:right; color:#2a231c">מהמנהלים לא קיבלו שום הכשרה פורמלית לניהול</p>
+          <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://fortune.com/2024/05/23/accidental-managers-no-training-losing-talent-survey" target="_blank" rel="noopener">Robert Walters, 2024</a></p>
+        </div>
+        <p style="width:150px; font-size:64px; font-weight:600; line-height:1; text-align:right; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">66%</p>
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:24px">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:end; gap:2px">
+          <p style="font-size:26px; font-weight:400; line-height:1.35; text-align:right; color:#2a231c">קיבלו הכשרה רק אחרי שכבר נכנסו לתפקיד</p>
+          <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.ciphr.com/blog/management-training-survey-results" target="_blank" rel="noopener">Ciphr</a></p>
+        </div>
+        <p style="width:150px; font-size:64px; font-weight:600; line-height:1; text-align:right; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">39%</p>
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:24px">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:end; gap:2px">
+          <p style="font-size:26px; font-weight:400; line-height:1.35; text-align:right; color:#2a231c">מנהלים ומנהלות בישראל, כ־8% מכלל המועסקים</p>
+          <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.tel-aviv.gov.il/Transparency/DocLib13/%D7%9E%D7%95%D7%A2%D7%A1%D7%A7%D7%99%D7%9D%20%D7%91%D7%A9%D7%9C%D7%95%D7%A9%20%D7%94%D7%A2%D7%A8%D7%99%D7%9D%20%D7%94%D7%92%D7%93%D7%95%D7%9C%D7%95%D7%AA%20%D7%95%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C,%20%D7%9C%D7%A4%D7%99%20%D7%9E%D7%A9%D7%9C%D7%97%20%D7%99%D7%93%202022.pdf" target="_blank" rel="noopener">למ"ס, 2021</a></p>
+        </div>
+        <p style="width:150px; font-size:56px; font-weight:600; line-height:1; text-align:right; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">303K</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:stretch; gap:22px; background:#2b251f; border-radius:24px; padding:36px 44px; box-shadow:0px 12px 32px rgba(60,45,30,0.18)">
+      <div style="display:flex; flex-direction:row; align-items:center; justify-content:end; gap:16px">
+        <div style="display:flex; flex-direction:column; align-items:end; gap:2px">
+          <h3 style="font-family:'Rubik', Arial, sans-serif; font-size:36px; font-weight:600; text-align:right; color:#f2ece2">מנכ"לים בתפקיד ראשון</h3>
+          <p style="font-size:24px; font-weight:300; text-align:right; color:#d2c8b8">המעבר הגדול לראש הפירמידה</p>
+        </div>
+        <div style="width:72px; height:72px; flex:none; display:flex; align-items:center; justify-content:center; background:#3a3229; border:2px solid #d4b07a; border-radius:50%"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:36px; height:36px; color:#d4b07a" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></div>
+      </div>
+      <div style="height:1px; background:#4a4036"></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:24px">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:end; gap:2px">
+          <p style="font-size:26px; font-weight:400; line-height:1.35; text-align:right; color:#f2ece2">מהמנכ"לים החדשים נכנסים לתפקיד מנכ"ל בפעם הראשונה</p>
+          <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.kornferry.com/insights/featured-topics/leadership/the-struggle-with-being-a-first-time-ceo" target="_blank" rel="noopener">Korn Ferry, 2025</a></p>
+        </div>
+        <p style="width:150px; font-size:64px; font-weight:600; line-height:1; text-align:right; color:#d4b07a">75%</p>
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:24px">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:end; gap:2px">
+          <p style="font-size:26px; font-weight:400; line-height:1.35; text-align:right; color:#f2ece2">בלבד מחברי הדירקטוריון אומרים שהארגון הכין היטב את המנכ"ל החדש</p>
+          <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.kornferry.com/about-us/press/new-korn-ferry-study-finds-ceo-transitions-are-outpacing-succession-readiness" target="_blank" rel="noopener">Korn Ferry, 2026</a></p>
+        </div>
+        <p style="width:150px; font-size:64px; font-weight:600; line-height:1; text-align:right; color:#d4b07a">15%</p>
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:24px">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:end; gap:2px">
+          <p style="font-size:26px; font-weight:400; line-height:1.35; text-align:right; color:#f2ece2">אמרו שהתפקיד שונה מאוד ממה שציפו</p>
+          <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.smartcompany.com.au/people-human-resources/it-s-lonley-at-the-top-and-it-could-be-hurting-your-performance/" target="_blank" rel="noopener">RHR International, 2012</a></p>
+        </div>
+        <p style="width:150px; font-size:64px; font-weight:600; line-height:1; text-align:right; color:#d4b07a">72%</p>
+      </div>
+    </div>
+  </div>
+  <p style="position:absolute; right:128px; bottom:24px; width:80px; font-size:24px; text-align:right; color:#8c7f6e">08</p>
+  
+</section>
+
+<section id="process" data-transition="fade" style="background:radial-gradient(ellipse at 50% 25%, #f6f0e6 0%, #e6daca 100%); color:#2a231c; font-family:'Rubik', Arial, sans-serif; padding:0px; display:flex; flex-direction:row">
+  <img src="assets/process-photo.jpg" alt="סליל DNA זוהר בסגול וזהב" style="width:440px; height:1080px; object-fit:cover">
+  <div style="position:absolute; left:260px; top:0px; width:190px; height:1080px; background:linear-gradient(to right, rgba(238,229,216,0) 0%, rgba(238,229,216,0.6) 50%, #EEE5D8 100%)"></div>
+  <div style="position:absolute; left:0px; top:0px; width:450px; height:90px; background:linear-gradient(to bottom, rgba(242,235,224,0.6) 0%, rgba(242,235,224,0) 100%)"></div>
+  <div style="position:absolute; left:0px; top:990px; width:450px; height:90px; background:linear-gradient(to top, rgba(232,222,206,0.6) 0%, rgba(232,222,206,0) 100%)"></div>
+  <div style="flex:1; display:flex; flex-direction:column; align-items:stretch; justify-content:center; gap:40px; padding:64px 96px 80px 48px">
+  <div style="display:flex; flex-direction:column; align-items:end; gap:12px">
+    <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+      <p style="font-size:24px; font-weight:400; letter-spacing:2px; text-align:right; color:#8a6634">איך זה עובד?‏</p>
+      <div style="width:40px; height:2px; background:#b08a55"></div>
+    </div>
+    <h2 style="font-family:'Rubik', Arial, sans-serif; font-size:64px; font-weight:600; line-height:1.15; text-align:right; color:#2a231c">מזהים את מה שמניע אותנו.&#8207;</h2>
+    <h2 style="font-family:'Rubik', Arial, sans-serif; font-size:64px; font-weight:600; line-height:1.15; text-align:right; color:#8a6634">משנים את מה שמנהל אותנו.&#8207;</h2>
+    <p style="font-size:28px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">תהליך מובנה שמתחיל בהיכרות אישית ומוביל להחלטות טובות יותר</p>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; gap:16px">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px; background:#2b251f; border-radius:24px; padding:28px 16px 32px; box-shadow:0px 12px 32px rgba(60,45,30,0.18)">
+      <div style="width:84px; height:84px; display:flex; align-items:center; justify-content:center; background:#3a3229; border:2px solid #d4b07a; border-radius:50%"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px; height:40px; color:#d4b07a" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <p style="font-size:32px; font-weight:600; line-height:1; text-align:center; color:#d4b07a">05</p>
+      <div style="height:72px; display:flex; flex-direction:column; justify-content:center; align-items:center"><h3 style="font-family:'Rubik', Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.25; text-align:center; color:#f2ece2">קבלת החלטה מושכלת</h3></div>
+      <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:center; color:#d2c8b8">המנהל מקבל את ההחלטה בעצמו, עם תמונה רחבה, בהירות וביטחון רב יותר</p>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 16px 32px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+      <div style="width:84px; height:84px; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg aria-label="חצים מתפצלים" viewBox="0 0 40 40" width="40" height="40" style="width:40px; height:40px"><g fill="none" stroke="#d4b07a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 36 L20 6 M14 12 L20 6 L26 12"/><path d="M20 24 Q20 16 8 12 M8 12 L9 19 M8 12 L15 11"/><path d="M20 24 Q20 16 32 12 M32 12 L31 19 M32 12 L25 11"/></g></svg></div>
+      <p style="font-size:32px; font-weight:600; line-height:1; text-align:center; color:#8a6634">04</p>
+      <div style="height:72px; display:flex; flex-direction:column; justify-content:center; align-items:center"><h3 style="font-family:'Rubik', Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.25; text-align:center; color:#2a231c">בחינת חלופות והשלכות</h3></div>
+      <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:center; color:#5a4e42">אפשרויות, סיכונים והזדמנויות, מנקודות מבט שונות ומאוזנות</p>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 16px 32px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+      <div style="width:84px; height:84px; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px; height:40px; color:#d4b07a" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
+      <p style="font-size:32px; font-weight:600; line-height:1; text-align:center; color:#8a6634">03</p>
+      <div style="height:72px; display:flex; flex-direction:column; justify-content:center; align-items:center"><h3 style="font-family:'Rubik', Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.25; text-align:center; color:#2a231c">אתגור החשיבה</h3></div>
+      <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:center; color:#5a4e42">שאלות שמאתגרות הנחות, זיהוי הטיות אישיות ונקודות מבט חדשות</p>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 16px 32px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+      <div style="width:84px; height:84px; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:40px; height:40px; color:#d4b07a" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <p style="font-size:32px; font-weight:600; line-height:1; text-align:center; color:#8a6634">02</p>
+      <div style="height:72px; display:flex; flex-direction:column; justify-content:center; align-items:center"><h3 style="font-family:'Rubik', Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.25; text-align:center; color:#2a231c">הצפת הדילמה הניהולית</h3></div>
+      <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:center; color:#5a4e42">המנהל משתף אתגר, התלבטות או החלטה שעל הפרק, ויובל כבר מכיר את הדרך שבה הוא פועל</p>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:24px; padding:28px 16px 32px; box-shadow:0px 12px 32px rgba(60,45,30,0.10)">
+      <div style="width:84px; height:84px; display:flex; align-items:center; justify-content:center; background:#2b251f; border-radius:50%"><svg aria-label="טביעת אצבע" viewBox="0 0 40 40" width="40" height="40" style="width:40px; height:40px"><g fill="none" stroke="#d4b07a" stroke-width="2.2" stroke-linecap="round"><path d="M10 14 Q20 4 30 14"/><path d="M8 22 Q8 10 20 10 Q32 10 32 22"/><path d="M12 30 Q12 14 20 14 Q28 14 28 26"/><path d="M16 34 Q16 18 20 18 Q24 18 24 30"/><path d="M20 22 L20 36"/></g></svg></div>
+      <p style="font-size:32px; font-weight:600; line-height:1; text-align:center; color:#8a6634">01</p>
+      <div style="height:72px; display:flex; flex-direction:column; justify-content:center; align-items:center"><h3 style="font-family:'Rubik', Arial, sans-serif; font-size:28px; font-weight:500; line-height:1.25; text-align:center; color:#2a231c">מיפוי המבנה האישיותי</h3></div>
+      <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:center; color:#5a4e42">מה מניע את המנהל, דפוסי החשיבה שלו, סגנון קבלת ההחלטות והנקודות העיוורות</p>
+    </div>
+  </div>
+  </div>
+  <p style="position:absolute; right:96px; bottom:24px; width:80px; font-size:24px; text-align:right; color:#8c7f6e">07</p>
+  
+</section>
+
+<section id="whyyuval" data-transition="fade" style="display:flex; flex-direction:row; padding:0; background:radial-gradient(ellipse at 60% 25%, #f6f0e6 0%, #e6daca 100%)">
+  <img src="assets/whyyuval-photo.jpg" alt="מוביל הולך ראשון ברכס הר, והצוות הולך אחריו אל עבר הזריחה" data-crop="1 50% 35%" style="width:600px; height:1080px">
+  <div style="display:flex; flex-direction:column; gap:28px; justify-content:center; flex:1; padding:56px 96px 64px 48px">
+    <div style="display:flex; flex-direction:column; gap:8px; align-items:end">
+      <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:400; letter-spacing:2px; text-align:right; color:#8a6634">למה דווקא אתה?‏</p>
+        <div style="width:40px; height:2px; display:flex; flex-direction:column; background:#b08a55">
+        </div>
+      </div>
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:56px; font-weight:600; line-height:1.15; text-align:right; color:#2a231c">יובל יודע להוביל אנשים,‏</h2>
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:56px; font-weight:600; line-height:1.15; text-align:right; color:#8a6634">בלי לשכוח להיות אחד מהם.‏</h2>
+    </div>
+    <div style="display:grid; gap:16px; grid-template-columns:1fr 1fr 1fr">
+      <div style="display:flex; flex-direction:column; gap:8px; align-items:end; padding:22px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px">
+        <div style="width:56px; height:56px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#2b251f; border-radius:256px">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-label="מטרה" viewBox="0 0 32 32" style="width:28px; height:28px"><g fill="none" stroke="#d4b07a" stroke-width="2.4" stroke-linecap="round"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="8"/><circle cx="16" cy="16" r="3"/></g></svg>
+        </div>
+        <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">קבלת החלטות מושכלות</h3>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">רואה את התמונה הרחבה, מאזן בין שיקולים ומקבל החלטות נכונות גם במצבים מורכבים</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items:end; padding:22px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px">
+        <div style="width:56px; height:56px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#2b251f; border-radius:256px">
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px; height:28px; color:#d4b07a" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">מנהיגות שמרתימה</h3>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">מחבר אנשים למטרה משותפת וגורם להם לרצות להיות חלק מהדרך</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items:end; padding:22px 24px; background:#2b251f; border-radius:20px; box-shadow:0 12px 32px #3c2d1e2e">
+        <div style="width:56px; height:56px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#3a3229; border:2px solid #d4b07a; border-radius:256px">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-label="פרצוף מחייך" viewBox="0 0 32 32" style="width:28px; height:28px"><g fill="none" stroke="#d4b07a" stroke-width="2.4" stroke-linecap="round"><circle cx="16" cy="16" r="13"/><path d="M10 19 Q16 25 22 19"/><circle cx="11.5" cy="12.5" r="1.2" fill="#d4b07a"/><circle cx="20.5" cy="12.5" r="1.2" fill="#d4b07a"/></g></svg>
+        </div>
+        <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#f2ece2">אנושיות וחוש הומור</h3>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#d2c8b8">מנהל בכיר שיכול להוביל ישיבת הנהלה, ואז לשבת עם הצוות לצחוק ולהיות אחד מהם</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items:end; padding:22px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px">
+        <div style="width:56px; height:56px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#2b251f; border-radius:256px">
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px; height:28px; color:#d4b07a" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+        </div>
+        <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">שילוב בין שכל לרגש</h3>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">יודע לשלב חשיבה רציונלית, אינטואיציה והבנה אנושית</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items:end; padding:22px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px">
+        <div style="width:56px; height:56px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#2b251f; border-radius:256px">
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px; height:28px; color:#d4b07a" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">ניסיון ניהולי עשיר</h3>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">שנים של ניהול בכיר, הובלת עובדים והתמודדות עם אתגרים מורכבים</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items:end; padding:22px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px">
+        <div style="width:56px; height:56px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#2b251f; border-radius:256px">
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px; height:28px; color:#d4b07a" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">תקשורת בין־אישית</h3>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">יודע להקשיב, להבין אנשים, לנהל שיח פתוח וליצור אמון אמיתי</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px; align-items:center; padding:20px 0 0; border-top:1px solid #d9c9b0">
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:300; text-align:center; color:#5a4e42">יש דברים שלא לומדים מספרי ניהול.‏</p>
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:40px; font-weight:600; text-align:center; color:#2a231c">לומדים אותם <span style="color:#8a6634">מאנשים כמו יובל.‏</span></p>
+    </div>
+  </div>
+  <div style="position:absolute; top:0; left:0; width:610px; height:90px; display:flex; flex-direction:column; background:linear-gradient(180deg, #f2ebe099 0%, #f2ebe000 100%)">
+  </div>
+  <div style="position:absolute; top:0; left:410px; width:200px; height:1080px; display:flex; flex-direction:column; background:linear-gradient(90deg, #eee5d800 0%, #eee5d899 50%, #eee5d8 100%)">
+  </div>
+  <div style="position:absolute; top:990px; left:0; width:610px; height:90px; display:flex; flex-direction:column; background:linear-gradient(0deg, #e8dece99 0%, #e8dece00 100%)">
+  </div>
+  
+</section>
+
+<section id="value" data-transition="fade" style="display:flex; flex-direction:row; padding:0; background:radial-gradient(ellipse at 60% 25%, #f6f0e6 0%, #e6daca 100%)">
+  <img src="assets/value-photo.jpg" alt="לוח שחמט בשקיעה מול נוף העיר, עם כלים שעליהם כתוב: החלטה, כספים, סיכונים, עובדים, משפחה, יעדים, צמיחה" style="width:600px; height:1080px">
+  <div style="display:flex; flex-direction:column; gap:22px; justify-content:center; flex:1; padding:56px 96px 64px 56px">
+    <div style="display:flex; flex-direction:column; gap:10px; align-items:end">
+      <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:400; letter-spacing:2px; text-align:right; color:#8a6634">הצעת הערך שלנו</p>
+        <div style="width:40px; height:2px; display:flex; flex-direction:column; background:#b08a55">
+        </div>
+      </div>
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:50px; font-weight:600; line-height:1.15; text-align:right; color:#2a231c">ליווי ניהולי אישי שמביא מנהלים <span style="color:#8a6634">רחוק יותר.‏</span></h2>
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:26px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">שילוב של <b>ייעוץ אנושי</b>, <b>כלים מבוססי AI</b> ותוכנית עבודה מותאמת אישית</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <div style="display:flex; flex-direction:row; gap:22px; align-items:center; padding:14px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:18px">
+        <div style="display:flex; flex-direction:column; gap:2px; align-items:end; flex:1">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">פגישות אישיות דו שבועיות</h3>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">פגישה קבועה עם יובל: ניתוח דילמות, אתגור חשיבה ומעקב אחר ההתקדמות</p>
+        </div>
+        <p style="width:48px; font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:600; text-align:center; color:#b08a55">01</p>
+        <div style="width:68px; height:68px; display:flex; flex-direction:row; align-items:center; justify-content:center; flex:0 0 auto; background:#2b251f; border-radius:256px">
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:32px; height:32px; color:#d4b07a" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:22px; align-items:center; padding:14px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:18px">
+        <div style="display:flex; flex-direction:column; gap:2px; align-items:end; flex:1">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">יובל בזמינות גבוהה</h3>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">ערוץ ישיר בין הפגישות: התייעצות, נקודת מבט נוספת וליווי בקבלת החלטות</p>
+        </div>
+        <p style="width:48px; font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:600; text-align:center; color:#b08a55">02</p>
+        <div style="width:68px; height:68px; display:flex; flex-direction:row; align-items:center; justify-content:center; flex:0 0 auto; background:#2b251f; border-radius:256px">
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:32px; height:32px; color:#d4b07a" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:22px; align-items:center; padding:14px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:18px">
+        <div style="display:flex; flex-direction:column; gap:2px; align-items:end; flex:1">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">תוכנית עבודה אישית</h3>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">תוכנית שמבוססת על המיפוי האישיותי, האתגרים והיעדים של המנהל, עם צעדים ברורים ליישום</p>
+        </div>
+        <p style="width:48px; font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:600; text-align:center; color:#b08a55">03</p>
+        <div style="width:68px; height:68px; display:flex; flex-direction:row; align-items:center; justify-content:center; flex:0 0 auto; background:#2b251f; border-radius:256px">
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:32px; height:32px; color:#d4b07a" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:22px; align-items:center; padding:14px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:18px">
+        <div style="display:flex; flex-direction:column; gap:2px; align-items:end; flex:1">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">יעדים אישיים מדידים</h3>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">יעדים להתפתחות ניהולית בתחומי מפתח, ומדידה שוטפת של ההתקדמות</p>
+        </div>
+        <p style="width:48px; font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:600; text-align:center; color:#b08a55">04</p>
+        <div style="width:68px; height:68px; display:flex; flex-direction:row; align-items:center; justify-content:center; flex:0 0 auto; background:#2b251f; border-radius:256px">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-label="מטרה" viewBox="0 0 32 32" style="width:32px; height:32px"><g fill="none" stroke="#d4b07a" stroke-width="2.2" stroke-linecap="round"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="8"/><circle cx="16" cy="16" r="3"/><path d="M16 16 L28 4 M23 4 L28 4 L28 9"/></g></svg>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:22px; align-items:center; padding:14px 24px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:18px">
+        <div style="display:flex; flex-direction:column; gap:2px; align-items:end; flex:1">
+          <h3 style="font-family:Rubik, Arial, sans-serif; font-size:28px; font-weight:500; text-align:right; color:#2a231c">מפת "עשה ואל תעשה" אישית</h3>
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">הנחיות מעשיות לפי דפוסי החשיבה של המנהל: מה לחזק, ממה להימנע, ואיך להחליט טוב יותר</p>
+        </div>
+        <p style="width:48px; font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:600; text-align:center; color:#b08a55">05</p>
+        <div style="width:68px; height:68px; display:flex; flex-direction:row; align-items:center; justify-content:center; flex:0 0 auto; background:#2b251f; border-radius:256px">
+          <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:32px; height:32px; color:#d4b07a" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:24px; align-items:center; justify-content:center; padding:14px 40px; background:#2b251f; border:1px solid #b08a55; border-radius:256px">
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:26px; font-weight:500; letter-spacing:1px; color:#d4b07a">AI-Powered Leadership</p>
+      <svg xmlns="http://www.w3.org/2000/svg" aria-label="אינסוף" viewBox="0 0 60 30" style="width:60px; height:30px"><path d="M30 15 C24 5 10 5 10 15 C10 25 24 25 30 15 C36 5 50 5 50 15 C50 25 36 25 30 15 Z" fill="none" stroke="#d4b07a" stroke-width="2.5"/></svg>
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:26px; font-weight:300; color:#f2ece2">טכנולוגיה שמעצימה את הליווי האנושי</p>
+    </div>
+  </div>
+  <div style="position:absolute; top:0; left:0; width:600px; height:540px; display:flex; flex-direction:column; background:linear-gradient(180deg, #14110ed9 0%, #14110e8c 55%, #14110e00 100%)">
+  </div>
+  <div style="position:absolute; top:0; left:420px; width:190px; height:1080px; display:flex; flex-direction:column; background:linear-gradient(90deg, #eee5d800 0%, #eee5d899 50%, #eee5d8 100%)">
+  </div>
+  <div style="position:absolute; top:990px; left:0; width:610px; height:90px; display:flex; flex-direction:column; background:linear-gradient(0deg, #e8dece99 0%, #e8dece00 100%)">
+  </div>
+  <div style="position:absolute; top:88px; left:64px; width:420px; display:flex; flex-direction:column; gap:10px; align-items:end">
+    <div style="width:80px; height:2px; display:flex; flex-direction:column; background:#d4b07a">
+    </div>
+  </div>
+  <p style="position:absolute; right:96px; bottom:20px; width:80px; font-family:Rubik, Arial, sans-serif; font-size:24px; text-align:right; color:#8c7f6e">09</p>
+  
+</section>
+
+<section id="money" data-transition="fade" style="background:radial-gradient(ellipse at 50% 25%, #f6f0e6 0%, #e6daca 100%); color:#2a231c; font-family:'Rubik', Arial, sans-serif; padding:56px 128px 64px; display:flex; flex-direction:column; align-items:stretch; justify-content:center; gap:24px">
+  <div style="display:flex; flex-direction:column; align-items:end; gap:10px">
+    <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+      <p style="font-size:24px; font-weight:400; letter-spacing:2px; text-align:right; color:#8a6634">הפוטנציאל העסקי בישראל</p>
+      <div style="width:40px; height:2px; background:#b08a55"></div>
+    </div>
+    <h2 style="font-family:'Rubik', Arial, sans-serif; font-size:60px; font-weight:600; line-height:1.15; text-align:right; color:#2a231c">שוק גדול.‏ <span style="color:#8a6634">מודל פשוט.&#8207;</span></h2>
+    <p style="font-size:26px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">חישוב שמרני, לפי מחירי השוק בישראל</p>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:20px">
+    <div style="display:flex; flex-direction:column; align-items:end; gap:8px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px; padding:24px 28px">
+      <p style="font-size:52px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">6K–30K ₪</p>
+      <p style="font-size:24px; font-weight:400; line-height:1.4; text-align:right; color:#2a231c">ריטיינר חודשי לליווי ארוך טווח בישראל</p>
+      <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://ronenfrieman.com/executive-coaching-cost-hebrew/" target="_blank" rel="noopener">סקירת מחירים, 2026</a></p>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:end; gap:8px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px; padding:24px 28px">
+      <p style="font-size:52px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">700–1,500 ₪</p>
+      <p style="font-size:24px; font-weight:400; line-height:1.4; text-align:right; color:#2a231c">לשעה, מאמן מנהלים מוסמך בישראל</p>
+      <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://ronenfrieman.com/executive-coaching-cost-hebrew/" target="_blank" rel="noopener">סקירת מחירים, 2026</a></p>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:end; gap:8px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px; padding:24px 28px">
+      <p style="font-size:52px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">697,000</p>
+      <p style="font-size:24px; font-weight:400; line-height:1.4; text-align:right; color:#2a231c">עסקים פעילים בישראל</p>
+      <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.calcalist.co.il/investing/article/b1x7dfarke" target="_blank" rel="noopener">למ"ס, דרך כלכליסט 2024</a></p>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:end; gap:8px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px; padding:24px 28px">
+      <p style="font-size:52px; font-weight:600; line-height:1; background:linear-gradient(135deg, #c39a5f 0%, #6e4f2a 100%); background-clip:text; -webkit-text-fill-color:transparent">303,000</p>
+      <p style="font-size:24px; font-weight:400; line-height:1.4; text-align:right; color:#2a231c">מנהלים ומנהלות בישראל</p>
+      <p style="font-size:24px; font-weight:300; text-align:right; color:#9a8c78"><a href="https://www.tel-aviv.gov.il/Transparency/DocLib13/%D7%9E%D7%95%D7%A2%D7%A1%D7%A7%D7%99%D7%9D%20%D7%91%D7%A9%D7%9C%D7%95%D7%A9%20%D7%94%D7%A2%D7%A8%D7%99%D7%9D%20%D7%94%D7%92%D7%93%D7%95%D7%9C%D7%95%D7%AA%20%D7%95%D7%91%D7%99%D7%A9%D7%A8%D7%90%D7%9C,%20%D7%9C%D7%A4%D7%99%20%D7%9E%D7%A9%D7%9C%D7%97%20%D7%99%D7%93%202022.pdf" target="_blank" rel="noopener">למ"ס, 2021</a></p>
+    </div>
+  </div>
+  <div style="display:flex; flex-direction:column; align-items:end; gap:10px">
+    <p style="font-size:28px; font-weight:500; text-align:right; color:#2a231c">סימולציה: יועץ אחד, 25 לקוחות</p>
+    <div style="width:100%; display:flex; flex-direction:row; align-items:center; gap:14px">
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; background:#2b251f; border-radius:18px; padding:18px 16px">
+        <p style="font-size:52px; font-weight:600; line-height:1.1; color:#d4b07a">11.5</p>
+        <p style="font-size:24px; font-weight:300; text-align:center; color:#d2c8b8">שעות עבודה בשבוע</p>
+      </div>
+      <p style="font-size:30px; font-weight:500; color:#b08a55">= 4.33 ÷</p>
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:18px; padding:18px 16px">
+        <p style="font-size:52px; font-weight:600; line-height:1.1; color:#8a6634">50</p>
+        <p style="font-size:24px; font-weight:300; text-align:center; color:#5a4e42">שעות בחודש</p>
+      </div>
+      <p style="font-size:40px; font-weight:500; color:#b08a55">=</p>
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:18px; padding:18px 16px">
+        <p style="font-size:52px; font-weight:600; line-height:1.1; color:#8a6634">2</p>
+        <p style="font-size:24px; font-weight:300; text-align:center; color:#5a4e42">שעות בחודש ללקוח</p>
+      </div>
+      <p style="font-size:40px; font-weight:500; color:#b08a55">×</p>
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:18px; padding:18px 16px">
+        <p style="font-size:52px; font-weight:600; line-height:1.1; color:#8a6634">25</p>
+        <p style="font-size:24px; font-weight:300; text-align:center; color:#5a4e42">לקוחות</p>
+      </div>
+    </div>
+    <div style="width:100%; display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px; background:#2b251f; border:1px solid #b08a55; border-radius:20px; padding:20px 24px; box-shadow:0px 12px 32px rgba(60,45,30,0.18)">
+        <p style="font-size:64px; font-weight:600; line-height:1.1; text-align:center; color:#d4b07a">600,000 ₪</p>
+        <p style="font-size:24px; font-weight:300; text-align:center; color:#d2c8b8">הכנסה בשנה</p>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px; padding:20px 24px">
+        <p style="font-size:64px; font-weight:600; line-height:1.1; text-align:center; color:#8a6634">50,000 ₪</p>
+        <p style="font-size:24px; font-weight:300; text-align:center; color:#5a4e42">הכנסה בחודש</p>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px; padding:20px 24px">
+        <p style="font-size:64px; font-weight:600; line-height:1.1; text-align:center; color:#8a6634">2,000 ₪</p>
+        <p style="font-size:24px; font-weight:300; text-align:center; color:#5a4e42">לחודש ללקוח</p>
+      </div>
+    </div>
+    <div style="width:100%; display:flex; flex-direction:row; align-items:center; justify-content:space-between; gap:24px">
+      <p style="font-size:26px; font-weight:500; color:#2b251f; background:#d4b07a; border-radius:999px; padding:10px 32px"><a href="simulator.html">לסימולטור ההכנסות</a></p>
+      <p style="font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#7a6d5e">הנחות: פגישה של שעה כל שבועיים, 1,000 ₪ לשעה (בצד הנמוך של טווח המחירים בישראל)‏</p>
+    </div>
+  </div>
+  <p style="position:absolute; right:128px; bottom:20px; width:80px; font-size:24px; text-align:right; color:#8c7f6e">10</p>
+  
+</section>
+
+<section id="aitools" data-transition="fade" style="display:flex; flex-direction:row; padding:0; background:radial-gradient(ellipse at 50% 20%, #f6f0e6 0%, #e6daca 100%)">
+  <img src="assets/aitools-photo.jpg" alt="רובוט חמוד ליד מוח AI הולוגרפי זוהר, מוקף כרטיסיות של יעדים, תובנות ונתונים" style="width:560px; height:1080px">
+  <div style="display:flex; flex-direction:column; gap:24px; justify-content:center; flex:1; padding:48px 96px 56px 40px">
+    <div style="display:flex; flex-direction:column; gap:8px; align-items:end">
+      <div style="display:flex; flex-direction:row; gap:14px; align-items:center">
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:400; letter-spacing:2px; text-align:right; color:#8a6634">כלים טכנולוגיים&nbsp;</p>
+        <div style="width:40px; height:2px; display:flex; flex-direction:column; background:#b08a55">
+        </div>
+      </div>
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:52px; font-weight:600; line-height:1.15; text-align:right; color:#2a231c">כשהתבונה האנושית פוגשת כלים חכמים</h2>
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:26px; font-weight:300; line-height:1.4; text-align:right; color:#5a4e42">כלים חכמים שמשתלבים בתהליך הליווי ומעניקים תובנות, בהירות והתקדמות לאורך זמן</p>
+    </div>
+    <div style="display:grid; gap:18px; grid-template-columns:1fr 1fr 1fr">
+      <div style="display:flex; flex-direction:column; gap:6px; align-items:end; padding:22px 26px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px">
+        <div style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; align-self:stretch">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:600; color:#8a6634">03</p>
+          <div style="width:60px; height:60px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#2b251f; border-radius:256px">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-label="מטרה" viewBox="0 0 32 32" style="width:30px; height:30px"><g fill="none" stroke="#d4b07a" stroke-width="2.2" stroke-linecap="round"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="8"/><circle cx="16" cy="16" r="3"/></g></svg>
+          </div>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:26px; font-weight:600; text-align:right; color:#2a231c">AI Meeting Companion</p>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:500; text-align:right; color:#8a6634">פגישות אפקטיביות יותר</p>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">סיכום פגישות, זיהוי תובנות והחלטות, והכנה מותאמת לפגישה הבאה</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; align-items:end; padding:22px 26px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px">
+        <div style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; align-self:stretch">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:600; color:#8a6634">02</p>
+          <div style="width:60px; height:60px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#2b251f; border-radius:256px">
+            <svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:30px; height:30px; color:#d4b07a" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:26px; font-weight:600; text-align:right; color:#2a231c">AI Decision Check</p>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:500; text-align:right; color:#8a6634">חשיבה טובה יותר</p>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">ניתוח דילמות והחלטות, עם שאלות מותאמות, חלופות, סיכונים ונקודות לבחינה</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; align-items:end; padding:22px 26px; background:linear-gradient(160deg, #fdfaf5 0%, #efe5d5 100%); border:1px solid #e3d5c0; border-radius:20px">
+        <div style="display:flex; flex-direction:row; align-items:center; justify-content:space-between; align-self:stretch">
+          <p style="font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:600; color:#8a6634">01</p>
+          <div style="width:60px; height:60px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#2b251f; border-radius:256px">
+            <svg xmlns="http://www.w3.org/2000/svg" aria-label="טביעת אצבע" viewBox="0 0 40 40" style="width:30px; height:30px"><g fill="none" stroke="#d4b07a" stroke-width="2.4" stroke-linecap="round"><path d="M10 14 Q20 4 30 14"/><path d="M8 22 Q8 10 20 10 Q32 10 32 22"/><path d="M12 30 Q12 14 20 14 Q28 14 28 26"/><path d="M16 34 Q16 18 20 18 Q24 18 24 30"/><path d="M20 22 L20 36"/></g></svg>
+          </div>
+        </div>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:26px; font-weight:600; text-align:right; color:#2a231c">AI Personality Map</p>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:500; text-align:right; color:#8a6634">מיפוי אישי מעמיק</p>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.35; text-align:right; color:#5a4e42">זיהוי דפוסי חשיבה, מניעים, חוזקות והטיות שמשפיעים על קבלת ההחלטות של המנהל</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:36px; align-items:center; padding:28px 44px; background:#2b251f; border:1px solid #b08a55; border-radius:24px">
+      <p style="padding:14px 40px; font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:500; color:#2b251f; background:#d4b07a; border-radius:256px"><a href="demo.html">לדמו החי</a></p>
+      <div style="display:flex; flex-direction:column; gap:4px; align-items:end; flex:1">
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:30px; font-weight:500; line-height:1.3; text-align:right; color:#f2ece2">רוצה לראות איך זה עובד?‏</p>
+        <p style="font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:300; line-height:1.4; text-align:right; color:#d2c8b8">דמו של מרכז ההחלטות על מנהלת חדשה בדויה: מיפוי אישי, ליווי פגישות ובדיקת החלטה</p>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute; top:0; left:370px; width:200px; height:1080px; display:flex; flex-direction:column; background:linear-gradient(90deg, #eee5d800 0%, #eee5d899 50%, #eee5d8 100%)">
+  </div>
+  <div style="position:absolute; top:0; left:0; width:570px; height:90px; display:flex; flex-direction:column; background:linear-gradient(180deg, #f2ebe099 0%, #f2ebe000 100%)">
+  </div>
+  <div style="position:absolute; top:990px; left:0; width:570px; height:90px; display:flex; flex-direction:column; background:linear-gradient(0deg, #e8dece99 0%, #e8dece00 100%)">
+  </div>
+  
+</section>
+
+<section id="closing" data-transition="fade" style="background:#14110e">
+  <img src="assets/closing-superman.jpg" alt="יובל כסופרמן, ידיים שלובות, מעל נוף העיר בשקיעה" data-crop="1 0% 40%" style="position:absolute; top:0; left:0; width:1920px; height:1080px">
+  <div style="position:absolute; top:0; left:0; width:1920px; height:1080px; display:flex; flex-direction:column; background:linear-gradient(90deg, #14110ef5 0%, #14110ee0 30%, #14110e8c 48%, #14110e61 65%, #14110e73 100%)">
+  </div>
+  <div style="position:absolute; top:0; left:0; width:1920px; height:1080px; display:flex; flex-direction:column; background:radial-gradient(ellipse at 62% 45%, #14110e00 0%, #14110e00 35%, #14110e99 100%)">
+  </div>
+  <div style="position:absolute; top:780px; left:0; width:1920px; height:300px; display:flex; flex-direction:column; background:linear-gradient(0deg, #14110ee6 0%, #14110e00 100%)">
+  </div>
+  <div style="position:absolute; top:56px; left:72px; width:340px; height:250px; display:flex; flex-direction:column; background:#f2ece2; border-radius:20px; box-shadow:0 14px 36px #00000080">
+  </div>
+  <img src="assets/logo.png" alt="YK" data-crop="1.6 50% 40%" style="position:absolute; top:72px; left:88px; width:308px; height:159.5px; border-radius:12px">
+  <p id="e14-ev4z7o" style="position:absolute; top:252px; left:72px; width:340px; font-family:Rubik, Arial, sans-serif; font-size:24px; font-weight:500; letter-spacing:2px; text-align:center; color:#2a231c">EXECUTIVE MENTORING</p>
+  <div id="e6-ev4z7o" data-build-in="rise 1" style="position:absolute; top:350px; left:80px; width:640px; display:flex; flex-direction:column; gap:30px; align-items:end">
+    <div style="display:flex; flex-direction:column; gap:8px; align-items:end">
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:44px; font-weight:300; line-height:1.25; text-align:right; color:#f2ece2">כל השנים עזרת למנהלים להצליח.‏</h2>
+      <h2 style="font-family:Rubik, Arial, sans-serif; font-size:44px; font-weight:600; line-height:1.25; text-align:right; color:#d4b07a">עכשיו הזמן להפוך את זה לשליחות.‏</h2>
+    </div>
+    <div style="width:120px; height:2px; display:flex; flex-direction:column; background:#d4b07a">
+    </div>
+    <div style="display:flex; flex-direction:column; gap:8px; align-items:end">
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:32px; font-weight:300; line-height:1.4; text-align:right; color:#d9cfbf">ואולי הפרק הבא שלך הוא לא לנהל עוד ארגון.‏</p>
+      <p style="font-family:Rubik, Arial, sans-serif; font-size:40px; font-weight:600; line-height:1.3; text-align:right; color:#f2ece2">הוא <span style="color:#d4b07a">להשפיע על מי שמנהלים ארגונים!‏</span></p>
+    </div>
+  </div>
+  
+</section>
+
+</div></div>
+<nav id="nav" aria-label="ניווט במצגת">
+  <button id="next" type="button" aria-label="השקף הבא">&#8249;</button>
+  <span id="count"></span>
+  <button id="prev" type="button" aria-label="השקף הקודם">&#8250;</button>
+  <button id="full" type="button" aria-label="מסך מלא">&#x26F6;</button>
+</nav>
+<script>
+  const stage = document.getElementById('stage');
+  const slides = [...stage.querySelectorAll(':scope > section')];
+  let i = 0;
+
+  function fit() {
+    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+  }
+  addEventListener('resize', fit); fit();
+
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('on', k === i));
+    document.getElementById('count').textContent = (i + 1) + ' / ' + slides.length;
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+  const start = parseInt(location.hash.slice(1), 10);
+  show(isNaN(start) ? 0 : start - 1);
+
+  // RTL deck: left arrow moves forward
+  addEventListener('keydown', e => {
+    if (['ArrowLeft', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowRight', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  document.getElementById('next').onclick = () => show(i + 1);
+  document.getElementById('prev').onclick = () => show(i - 1);
+  document.getElementById('full').onclick = () => {
+    try { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); } catch (e) {}
+  };
+  let x0 = null;
+  addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) show(dx > 0 ? i + 1 : i - 1);
+    x0 = null;
+  });
+
+  // Hide the nav bar while idle
+  let t;
+  const wake = () => { document.body.classList.remove('idle'); clearTimeout(t); t = setTimeout(() => document.body.classList.add('idle'), 2500); };
+  ['mousemove', 'touchstart', 'keydown'].forEach(ev => addEventListener(ev, wake, { passive: true }));
+  wake();
+
+  // data-crop="ZOOM X% Y%": render as a cover-fitted background with zoom and focal point
+  stage.querySelectorAll('img[data-crop]').forEach(img => {
+    const [z, px, py] = img.dataset.crop.split(' ');
+    const zoom = parseFloat(z) || 1;
+    const apply = () => {
+      const div = document.createElement('div');
+      div.className = 'crop';
+      div.setAttribute('role', 'img');
+      div.setAttribute('aria-label', img.alt);
+      div.style.cssText = img.style.cssText;
+      const w = parseFloat(img.style.width) || img.clientWidth, h = parseFloat(img.style.height) || img.clientHeight;
+      const k = Math.max(w / img.naturalWidth, h / img.naturalHeight) * zoom;
+      div.style.backgroundImage = 'url("' + img.getAttribute('src') + '")';
+      div.style.backgroundSize = (img.naturalWidth * k) + 'px ' + (img.naturalHeight * k) + 'px';
+      div.style.backgroundPosition = (px || '50%') + ' ' + (py || '50%');
+      img.replaceWith(div);
+    };
+    img.complete && img.naturalWidth ? apply() : img.addEventListener('load', apply, { once: true });
+  });
+</script>
+</body>
+</html>
